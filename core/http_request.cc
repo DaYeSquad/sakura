@@ -1,0 +1,37 @@
+﻿//
+//  http_request.cpp
+//  LessChatCore
+//
+//  Created by Frank Lin on 12/5/14.
+//
+//
+
+#include "http_request.h"
+
+USING_NS_SKR;
+using std::unique_ptr;
+
+////////////////////////////////////////////////////////////////////////////////
+// HTTPRequest, public:
+
+// Creation and lifetime --------------------------------------------------------
+
+std::unique_ptr<HttpRequest> HttpRequest::Clone() const {
+  unique_ptr<HttpRequest> request(new HttpRequest());
+  request->set_request_type(request_type_);
+  request->set_url(url_);
+  request->set_request_header(request_header_);
+  request->set_request_data(request_data_);
+  request->set_tag(tag_);
+  return request;
+}
+
+// Property getters & setters --------------------------------------------------------
+
+void HttpRequest::AddValueToHttpHeaderField(const std::string& key, const std::string& value) {
+	request_header_.insert(std::pair<std::string, std::string>(key, value));
+}
+
+void HttpRequest::SetValueForHttpHeaderField(const std::string& key, const std::string& value) {
+	request_header_[key] = value;
+}
