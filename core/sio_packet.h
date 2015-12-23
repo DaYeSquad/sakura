@@ -23,14 +23,27 @@ NS_SKR_BEGIN
 class SIOPacket {
 public:
   
-  enum Type {
+  // socket.io packet type (https://github.com/socketio/socket.io-protocol)
+  enum class Type {
     CONNECT      = 0,
     DISCONNECT   = 1,
     EVENT        = 2,
     ACK          = 3,
     ERROR        = 4,
     BINARY_EVENT = 5,
-    BINARY_ACK   = 6
+    BINARY_ACK   = 6,
+    UNDETERMINED = 0x10 //undetermined mask bit
+  };
+  
+  // engine.io packet type (https://github.com/socketio/engine.io-protocol)
+  enum class FrameType {
+    OPEN    = 0,
+    CLOSE   = 1,
+    PING    = 2,
+    PONG    = 3,
+    MESSAGE = 4,
+    UPGRADE = 5,
+    NOOP    = 6
   };
   
   // Creation and lifetime --------------------------------------------------------
@@ -40,7 +53,11 @@ public:
   
   void InitWithType(SIOPacket::Type type);
   
+  void InitWithFrameType(SIOPacket::FrameType frame_type);
+  
   static std::unique_ptr<SIOPacket> SIOPacketWithType(SIOPacket::Type type);
+  
+  static std::unique_ptr<SIOPacket> SIOPacketWithFrameType(SIOPacket::FrameType type);
   
   // Utils --------------------------------------------------------
   
@@ -48,6 +65,9 @@ public:
   
   // encode name and args to JSON
   std::string Stringify() const;
+  
+  // returns type number based on |type_| and |frame_type_|
+  int TypeAsNumber() const;
   
   // Getters/Setters --------------------------------------------------------
   
@@ -73,6 +93,7 @@ private:
   std::vector<std::string> args_;
   
   SIOPacket::Type type_;
+  SIOPacket::FrameType frame_type_;
   
   
   DISALLOW_COPY_AND_ASSIGN(SIOPacket);

@@ -212,7 +212,8 @@ void SIOClientImpl::OnOpen(const Websocket *ws) {
   string ping_str = "5";
   websocket_->Send(ping_str);
   
-  // scheduler ping
+  // schedule heartbeat
+  ScheduleHeartbeat();
   
   log_event("SIOClientImpl::OnOpen socket connected");
 }
@@ -360,8 +361,41 @@ void SIOClientImpl::OnClose(const Websocket *ws) {
       it->second->OnSocketClosed();
     }
   }
+  
+  QuitHeartbeatThread();
 }
 
 void SIOClientImpl::OnError(const Websocket* ws, const Websocket::ErrorCode& error) {
   log_error("SIOClientImpl::OnError %d", error);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// SIOClientImpl, private:
+
+// Heartbeat --------------------------------------------------------
+
+void SIOClientImpl::ScheduleHeartbeat() {
+  heartbeat_thread_ = unique_ptr<std::thread>(new std::thread(&SIOClientImpl::Heartbeat, this));
+}
+
+void SIOClientImpl::QuitHeartbeatThread() {
+  // waits for heartbeat thread to quit
+  need_quit_heartbeat_thread_ = true;
+  if (heartbeat_thread_) {
+    if (heartbeat_thread_->joinable()) {
+      heartbeat_thread_->join();
+    }
+  }
+}
+
+void SIOClientImpl::Heartbeat() {
+  while (!need_quit_heartbeat_thread_) {
+    log_event("SIOClientImpl::Heartbeat send ping");
+    
+    // send packet
+    unique_ptr<SIOPacket> packet = SIOPacket::SIOPacketWithFrameType(SIOPacket::FrameType::PING);
+    Send(*packet);
+    
+    std::this_thread::sleep_for(std::chrono::seconds(static_cast<int>(heartbeat_ * 0.9)));
+  }
 }

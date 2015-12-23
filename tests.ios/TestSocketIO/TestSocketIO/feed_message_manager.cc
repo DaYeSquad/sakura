@@ -19,5 +19,6 @@ FeedMessageManager::~FeedMessageManager() {
 }
 
 void FeedMessageManager::Connect() {
-  
+  std::map<std::string, std::string> handshakeHeader;
+  _sioClient = sakura::SocketIO::Connect("wss://xxx.com:443", *this, handshakeHeader);
 }

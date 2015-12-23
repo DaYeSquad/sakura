@@ -26,7 +26,9 @@ static std::string const kEndSeparator = ",";
 
 // Creation and lifetime --------------------------------------------------------
 
-SIOPacket::SIOPacket() {
+SIOPacket::SIOPacket()
+:type_(SIOPacket::Type::UNDETERMINED),
+frame_type_(SIOPacket::FrameType::MESSAGE) {
   
 }
 
@@ -36,6 +38,12 @@ SIOPacket::~SIOPacket() {
 
 void SIOPacket::InitWithType(SIOPacket::Type type) {
   type_ = type;
+  frame_type_ = FrameType::MESSAGE;
+}
+
+void SIOPacket::InitWithFrameType(SIOPacket::FrameType frame_type) {
+  type_ = SIOPacket::Type::UNDETERMINED;
+  frame_type_ = frame_type;
 }
 
 std::unique_ptr<SIOPacket> SIOPacket::SIOPacketWithType(SIOPacket::Type type) {
@@ -44,16 +52,21 @@ std::unique_ptr<SIOPacket> SIOPacket::SIOPacketWithType(SIOPacket::Type type) {
   return rtn;
 }
 
+std::unique_ptr<SIOPacket> SIOPacket::SIOPacketWithFrameType(SIOPacket::FrameType type) {
+  unique_ptr<SIOPacket> rtn(new SIOPacket());
+  rtn->InitWithFrameType(type);
+  return rtn;
+}
+
 // Utils --------------------------------------------------------
 
 std::string SIOPacket::ToString() const {
   std::stringstream encoded;
-  encoded << type_;
+  encoded << TypeAsNumber();
   encoded << kSeparator;
   
   std::string pid_l = packet_id_;
-  if (ack_ == "data")
-  {
+  if (ack_ == "data") {
     pid_l += "+";
   }
   
@@ -67,6 +80,7 @@ std::string SIOPacket::ToString() const {
   if (endpoint_ != "/"
       && endpoint_ != ""
       && type_ != SIOPacket::Type::ACK
+      && frame_type_ != SIOPacket::FrameType::PING
       && type_ != SIOPacket::Type::DISCONNECT) {
     encoded << endpoint_ << kEndSeparator;
   }
@@ -100,4 +114,14 @@ std::string SIOPacket::Stringify() const {
   log_event("SIOPacket::Stringify args is %s", encode_str.c_str());
   
   return encode_str;
+}
+
+int SIOPacket::TypeAsNumber() const {
+  if (type_ != SIOPacket::Type::UNDETERMINED) {
+    int num = static_cast<int>(type_);
+    num += 40; // SIOPacket::FrameType must be 4 (message)
+    return num;
+  } else {
+    return static_cast<int>(frame_type_);
+  }
 }

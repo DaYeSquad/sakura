@@ -12,6 +12,7 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include <thread>
 
 #include "macros.h"
 
@@ -42,6 +43,8 @@ public:
     uri_ = ss.str();
     
     websocket_ = nullptr;
+    
+    need_quit_heartbeat_thread_ = false;
   }
   
   virtual ~SIOClientImpl() {}
@@ -80,7 +83,6 @@ public:
   
 private:
   int port_;
-  int heartbeat_;
   int timeout_;
   bool use_ssl_;
   
@@ -93,6 +95,18 @@ private:
   std::unique_ptr<Websocket> websocket_;
   
   std::map<std::string /*endpoint*/, SIOClient* /*client*/> clients_;
+  
+  int heartbeat_;
+  bool need_quit_heartbeat_thread_;
+  std::unique_ptr<std::thread> heartbeat_thread_;
+  
+  // Heartbeat --------------------------------------------------------
+  
+  void ScheduleHeartbeat();
+  
+  void QuitHeartbeatThread();
+  
+  void Heartbeat();
   
   
   DISALLOW_COPY_AND_ASSIGN(SIOClientImpl);

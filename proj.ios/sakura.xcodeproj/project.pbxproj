@@ -168,6 +168,7 @@
 			children = (
 				7D628DF21C27D32F00CBC088 /* README.md */,
 				7D628DF31C27D32F00CBC088 /* sakura.h */,
+				7D628DF11C27D32F00CBC088 /* macros.h */,
 				7D628E8B1C27DAD200CBC088 /* socket_io.cc */,
 				7D628E8C1C27DAD200CBC088 /* socket_io.h */,
 				7D6197D41C29239400C42B19 /* sio_client.cc */,
@@ -191,7 +192,6 @@
 				7D628DEE1C27D32F00CBC088 /* http_response.cc */,
 				7D628DEF1C27D32F00CBC088 /* http_response.h */,
 				7D628DF01C27D32F00CBC088 /* log.h */,
-				7D628DF11C27D32F00CBC088 /* macros.h */,
 				7D628DF41C27D32F00CBC088 /* string_utils.cc */,
 				7D628DF51C27D32F00CBC088 /* string_utils.h */,
 				7D628DF81C27D32F00CBC088 /* url_utils-inl.h */,
