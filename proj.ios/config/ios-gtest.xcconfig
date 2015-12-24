@@ -4,7 +4,7 @@
 
 #include "ios-common.xcconfig"
 
-HEADER_SEARCH_PATHS = ../core ../external ../external/gtest/include ../external/curl/curl
+HEADER_SEARCH_PATHS = ../sakura ../external ../external/gtest/include ../external/curl/curl
 
 LIBRARY_SEARCH_PATHS = ../external/gtest/prebuilt/ios ../external/curl/prebuilt/iOS
 

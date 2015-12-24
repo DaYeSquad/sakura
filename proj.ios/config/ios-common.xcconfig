@@ -4,7 +4,7 @@
 
 IPHONEOS_DEPLOYMENT_TARGET = 8.0
 
-HEADER_SEARCH_PATHS = ../core ../external ../external/curl/curl ../external/websockets/include/ios
+HEADER_SEARCH_PATHS = ../sakura ../external ../external/curl/curl ../external/websockets/include/ios
 
 LIBRARY_SEARCH_PATHS = ../external/curl/prebuilt/iOS ../external/openssl/lib ../external/websockets/prebuilt/ios
 

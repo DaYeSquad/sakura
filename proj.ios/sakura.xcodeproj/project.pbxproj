@@ -7,51 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D6197D61C29239400C42B19 /* sio_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D6197D41C29239400C42B19 /* sio_client.cc */; };
-		7D6197D71C29239400C42B19 /* sio_client.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D6197D51C29239400C42B19 /* sio_client.h */; };
 		7D6197DB1C293F3200C42B19 /* json11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6197D91C293F3200C42B19 /* json11.cpp */; };
 		7D6197DC1C293F3200C42B19 /* json11.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7D6197DA1C293F3200C42B19 /* json11.hpp */; };
-		7D628E0A1C27D32F00CBC088 /* file_utils_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DE21C27D32F00CBC088 /* file_utils_ios.h */; };
-		7D628E0B1C27D32F00CBC088 /* file_utils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DE31C27D32F00CBC088 /* file_utils_ios.mm */; };
-		7D628E0C1C27D32F00CBC088 /* http_client_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DE41C27D32F00CBC088 /* http_client_cocoa.mm */; };
-		7D628E0D1C27D32F00CBC088 /* log_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DE51C27D32F00CBC088 /* log_cocoa.mm */; };
-		7D628E0E1C27D32F00CBC088 /* file_utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DE61C27D32F00CBC088 /* file_utils.cc */; };
-		7D628E0F1C27D32F00CBC088 /* file_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DE71C27D32F00CBC088 /* file_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E101C27D32F00CBC088 /* http_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DE81C27D32F00CBC088 /* http_client.cc */; };
-		7D628E111C27D32F00CBC088 /* http_client.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DE91C27D32F00CBC088 /* http_client.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E121C27D32F00CBC088 /* http_multipart_request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DEA1C27D32F00CBC088 /* http_multipart_request.cc */; };
-		7D628E131C27D32F00CBC088 /* http_multipart_request.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DEB1C27D32F00CBC088 /* http_multipart_request.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E141C27D32F00CBC088 /* http_request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DEC1C27D32F00CBC088 /* http_request.cc */; };
-		7D628E151C27D32F00CBC088 /* http_request.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DED1C27D32F00CBC088 /* http_request.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E161C27D32F00CBC088 /* http_response.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DEE1C27D32F00CBC088 /* http_response.cc */; };
-		7D628E171C27D32F00CBC088 /* http_response.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DEF1C27D32F00CBC088 /* http_response.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E181C27D32F00CBC088 /* log.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DF01C27D32F00CBC088 /* log.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E191C27D32F00CBC088 /* macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DF11C27D32F00CBC088 /* macros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E1B1C27D32F00CBC088 /* sakura.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DF31C27D32F00CBC088 /* sakura.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E1C1C27D32F00CBC088 /* string_utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628DF41C27D32F00CBC088 /* string_utils.cc */; };
-		7D628E1D1C27D32F00CBC088 /* string_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DF51C27D32F00CBC088 /* string_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E1F1C27D32F00CBC088 /* url_utils-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628DF81C27D32F00CBC088 /* url_utils-inl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D628E271C27D3B700CBC088 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E261C27D3B700CBC088 /* libcurl.a */; };
 		7D628E291C27D3C400CBC088 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E281C27D3C400CBC088 /* Security.framework */; };
 		7D628E2C1C27D40600CBC088 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E2A1C27D40600CBC088 /* libcrypto.a */; };
 		7D628E2D1C27D40600CBC088 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E2B1C27D40600CBC088 /* libssl.a */; };
-		7D628E5D1C27D58100CBC088 /* websocket.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628E5B1C27D58100CBC088 /* websocket.cc */; };
-		7D628E5E1C27D58100CBC088 /* websocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628E5C1C27D58100CBC088 /* websocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E8D1C27DAD200CBC088 /* socket_io.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628E8B1C27DAD200CBC088 /* socket_io.cc */; };
-		7D628E8E1C27DAD200CBC088 /* socket_io.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628E8C1C27DAD200CBC088 /* socket_io.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D628E911C27E2A700CBC088 /* sio_client_impl.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D628E8F1C27E2A700CBC088 /* sio_client_impl.cc */; };
-		7D628E921C27E2A700CBC088 /* sio_client_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D628E901C27E2A700CBC088 /* sio_client_impl.h */; };
-		7D72A52E1C28333400FEB2E4 /* websocket_thread_helper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7D72A52C1C28333400FEB2E4 /* websocket_thread_helper.cc */; };
-		7D72A52F1C28333400FEB2E4 /* websocket_thread_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D72A52D1C28333400FEB2E4 /* websocket_thread_helper.h */; };
-		7D72A5311C2835D300FEB2E4 /* websocket_thread_helper_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7D72A5301C2835D300FEB2E4 /* websocket_thread_helper_cocoa.mm */; };
+		7DBC2AED1C2BD3FF00425A60 /* file_utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD21C2BD3FF00425A60 /* file_utils.cc */; };
+		7DBC2AEE1C2BD3FF00425A60 /* file_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AD31C2BD3FF00425A60 /* file_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AEF1C2BD3FF00425A60 /* http_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD41C2BD3FF00425A60 /* http_client.cc */; };
+		7DBC2AF01C2BD3FF00425A60 /* http_client.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AD51C2BD3FF00425A60 /* http_client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AF11C2BD3FF00425A60 /* http_multipart_request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD61C2BD3FF00425A60 /* http_multipart_request.cc */; };
+		7DBC2AF21C2BD3FF00425A60 /* http_multipart_request.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AD71C2BD3FF00425A60 /* http_multipart_request.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AF31C2BD3FF00425A60 /* http_request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD81C2BD3FF00425A60 /* http_request.cc */; };
+		7DBC2AF41C2BD3FF00425A60 /* http_request.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AD91C2BD3FF00425A60 /* http_request.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AF51C2BD3FF00425A60 /* http_response.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2ADA1C2BD3FF00425A60 /* http_response.cc */; };
+		7DBC2AF61C2BD3FF00425A60 /* http_response.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2ADB1C2BD3FF00425A60 /* http_response.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AF71C2BD3FF00425A60 /* log.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2ADC1C2BD3FF00425A60 /* log.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AF81C2BD3FF00425A60 /* macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2ADD1C2BD3FF00425A60 /* macros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AF91C2BD3FF00425A60 /* sakura.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2ADE1C2BD3FF00425A60 /* sakura.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AFA1C2BD3FF00425A60 /* sio_client_impl.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2ADF1C2BD3FF00425A60 /* sio_client_impl.cc */; };
+		7DBC2AFB1C2BD3FF00425A60 /* sio_client_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AE01C2BD3FF00425A60 /* sio_client_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AFC1C2BD3FF00425A60 /* sio_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE11C2BD3FF00425A60 /* sio_client.cc */; };
+		7DBC2AFD1C2BD3FF00425A60 /* sio_client.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AE21C2BD3FF00425A60 /* sio_client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2AFE1C2BD3FF00425A60 /* sio_packet.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE31C2BD3FF00425A60 /* sio_packet.cc */; };
+		7DBC2AFF1C2BD3FF00425A60 /* sio_packet.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AE41C2BD3FF00425A60 /* sio_packet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B001C2BD3FF00425A60 /* socket_io.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE51C2BD3FF00425A60 /* socket_io.cc */; };
+		7DBC2B011C2BD3FF00425A60 /* socket_io.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AE61C2BD3FF00425A60 /* socket_io.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B021C2BD3FF00425A60 /* string_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AE71C2BD3FF00425A60 /* string_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B031C2BD3FF00425A60 /* url_utils-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AE81C2BD3FF00425A60 /* url_utils-inl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B041C2BD3FF00425A60 /* websocket_thread_helper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE91C2BD3FF00425A60 /* websocket_thread_helper.cc */; };
+		7DBC2B051C2BD3FF00425A60 /* websocket_thread_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AEA1C2BD3FF00425A60 /* websocket_thread_helper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B061C2BD3FF00425A60 /* websocket.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AEB1C2BD3FF00425A60 /* websocket.cc */; };
+		7DBC2B071C2BD3FF00425A60 /* websocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AEC1C2BD3FF00425A60 /* websocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B0E1C2BD40600425A60 /* file_utils_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2B091C2BD40600425A60 /* file_utils_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DBC2B0F1C2BD40600425A60 /* file_utils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */; };
+		7DBC2B101C2BD40600425A60 /* http_client_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */; };
+		7DBC2B111C2BD40600425A60 /* log_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */; };
+		7DBC2B121C2BD40600425A60 /* websocket_thread_helper_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */; };
 		7DC00B731C2A5F16002A6099 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC00B721C2A5F16002A6099 /* libwebsockets.a */; };
-		7DCBC0531C28F7B30082A846 /* sio_packet.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DCBC0511C28F7B30082A846 /* sio_packet.cc */; };
-		7DCBC0541C28F7B30082A846 /* sio_packet.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DCBC0521C28F7B30082A846 /* sio_packet.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7D6197D41C29239400C42B19 /* sio_client.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_client.cc; sourceTree = "<group>"; };
-		7D6197D51C29239400C42B19 /* sio_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_client.h; sourceTree = "<group>"; };
 		7D6197D91C293F3200C42B19 /* json11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json11.cpp; sourceTree = "<group>"; };
 		7D6197DA1C293F3200C42B19 /* json11.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json11.hpp; sourceTree = "<group>"; };
 		7D628D731C27D11600CBC088 /* sakura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sakura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,43 +57,43 @@
 		7D628DD21C27D21600CBC088 /* ios-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ios-debug.xcconfig"; sourceTree = "<group>"; };
 		7D628DD31C27D21600CBC088 /* ios-gtest.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ios-gtest.xcconfig"; sourceTree = "<group>"; };
 		7D628DD41C27D21600CBC088 /* ios-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ios-release.xcconfig"; sourceTree = "<group>"; };
-		7D628DE21C27D32F00CBC088 /* file_utils_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_utils_ios.h; sourceTree = "<group>"; };
-		7D628DE31C27D32F00CBC088 /* file_utils_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = file_utils_ios.mm; sourceTree = "<group>"; };
-		7D628DE41C27D32F00CBC088 /* http_client_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = http_client_cocoa.mm; sourceTree = "<group>"; };
-		7D628DE51C27D32F00CBC088 /* log_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = log_cocoa.mm; sourceTree = "<group>"; };
-		7D628DE61C27D32F00CBC088 /* file_utils.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = file_utils.cc; sourceTree = "<group>"; };
-		7D628DE71C27D32F00CBC088 /* file_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_utils.h; sourceTree = "<group>"; };
-		7D628DE81C27D32F00CBC088 /* http_client.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_client.cc; sourceTree = "<group>"; };
-		7D628DE91C27D32F00CBC088 /* http_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_client.h; sourceTree = "<group>"; };
-		7D628DEA1C27D32F00CBC088 /* http_multipart_request.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_multipart_request.cc; sourceTree = "<group>"; };
-		7D628DEB1C27D32F00CBC088 /* http_multipart_request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_multipart_request.h; sourceTree = "<group>"; };
-		7D628DEC1C27D32F00CBC088 /* http_request.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_request.cc; sourceTree = "<group>"; };
-		7D628DED1C27D32F00CBC088 /* http_request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_request.h; sourceTree = "<group>"; };
-		7D628DEE1C27D32F00CBC088 /* http_response.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_response.cc; sourceTree = "<group>"; };
-		7D628DEF1C27D32F00CBC088 /* http_response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_response.h; sourceTree = "<group>"; };
-		7D628DF01C27D32F00CBC088 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
-		7D628DF11C27D32F00CBC088 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
-		7D628DF21C27D32F00CBC088 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7D628DF31C27D32F00CBC088 /* sakura.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sakura.h; sourceTree = "<group>"; };
-		7D628DF41C27D32F00CBC088 /* string_utils.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = string_utils.cc; sourceTree = "<group>"; };
-		7D628DF51C27D32F00CBC088 /* string_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_utils.h; sourceTree = "<group>"; };
-		7D628DF81C27D32F00CBC088 /* url_utils-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "url_utils-inl.h"; sourceTree = "<group>"; };
 		7D628E261C27D3B700CBC088 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../external/curl/prebuilt/iOS/libcurl.a; sourceTree = "<group>"; };
 		7D628E281C27D3C400CBC088 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7D628E2A1C27D40600CBC088 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../external/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
 		7D628E2B1C27D40600CBC088 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../external/openssl/lib/libssl.a; sourceTree = "<group>"; };
-		7D628E5B1C27D58100CBC088 /* websocket.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = websocket.cc; sourceTree = "<group>"; };
-		7D628E5C1C27D58100CBC088 /* websocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = websocket.h; sourceTree = "<group>"; };
-		7D628E8B1C27DAD200CBC088 /* socket_io.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = socket_io.cc; sourceTree = "<group>"; };
-		7D628E8C1C27DAD200CBC088 /* socket_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket_io.h; sourceTree = "<group>"; };
-		7D628E8F1C27E2A700CBC088 /* sio_client_impl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_client_impl.cc; sourceTree = "<group>"; };
-		7D628E901C27E2A700CBC088 /* sio_client_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_client_impl.h; sourceTree = "<group>"; };
-		7D72A52C1C28333400FEB2E4 /* websocket_thread_helper.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = websocket_thread_helper.cc; sourceTree = "<group>"; };
-		7D72A52D1C28333400FEB2E4 /* websocket_thread_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = websocket_thread_helper.h; sourceTree = "<group>"; };
-		7D72A5301C2835D300FEB2E4 /* websocket_thread_helper_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = websocket_thread_helper_cocoa.mm; sourceTree = "<group>"; };
+		7DBC2AD21C2BD3FF00425A60 /* file_utils.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = file_utils.cc; path = ../sakura/file_utils.cc; sourceTree = "<group>"; };
+		7DBC2AD31C2BD3FF00425A60 /* file_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = file_utils.h; path = ../sakura/file_utils.h; sourceTree = "<group>"; };
+		7DBC2AD41C2BD3FF00425A60 /* http_client.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = http_client.cc; path = ../sakura/http_client.cc; sourceTree = "<group>"; };
+		7DBC2AD51C2BD3FF00425A60 /* http_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = http_client.h; path = ../sakura/http_client.h; sourceTree = "<group>"; };
+		7DBC2AD61C2BD3FF00425A60 /* http_multipart_request.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = http_multipart_request.cc; path = ../sakura/http_multipart_request.cc; sourceTree = "<group>"; };
+		7DBC2AD71C2BD3FF00425A60 /* http_multipart_request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = http_multipart_request.h; path = ../sakura/http_multipart_request.h; sourceTree = "<group>"; };
+		7DBC2AD81C2BD3FF00425A60 /* http_request.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = http_request.cc; path = ../sakura/http_request.cc; sourceTree = "<group>"; };
+		7DBC2AD91C2BD3FF00425A60 /* http_request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = http_request.h; path = ../sakura/http_request.h; sourceTree = "<group>"; };
+		7DBC2ADA1C2BD3FF00425A60 /* http_response.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = http_response.cc; path = ../sakura/http_response.cc; sourceTree = "<group>"; };
+		7DBC2ADB1C2BD3FF00425A60 /* http_response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = http_response.h; path = ../sakura/http_response.h; sourceTree = "<group>"; };
+		7DBC2ADC1C2BD3FF00425A60 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = log.h; path = ../sakura/log.h; sourceTree = "<group>"; };
+		7DBC2ADD1C2BD3FF00425A60 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = macros.h; path = ../sakura/macros.h; sourceTree = "<group>"; };
+		7DBC2ADE1C2BD3FF00425A60 /* sakura.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sakura.h; path = ../sakura/sakura.h; sourceTree = "<group>"; };
+		7DBC2ADF1C2BD3FF00425A60 /* sio_client_impl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sio_client_impl.cc; path = ../sakura/sio_client_impl.cc; sourceTree = "<group>"; };
+		7DBC2AE01C2BD3FF00425A60 /* sio_client_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sio_client_impl.h; path = ../sakura/sio_client_impl.h; sourceTree = "<group>"; };
+		7DBC2AE11C2BD3FF00425A60 /* sio_client.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sio_client.cc; path = ../sakura/sio_client.cc; sourceTree = "<group>"; };
+		7DBC2AE21C2BD3FF00425A60 /* sio_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sio_client.h; path = ../sakura/sio_client.h; sourceTree = "<group>"; };
+		7DBC2AE31C2BD3FF00425A60 /* sio_packet.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sio_packet.cc; path = ../sakura/sio_packet.cc; sourceTree = "<group>"; };
+		7DBC2AE41C2BD3FF00425A60 /* sio_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sio_packet.h; path = ../sakura/sio_packet.h; sourceTree = "<group>"; };
+		7DBC2AE51C2BD3FF00425A60 /* socket_io.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = socket_io.cc; path = ../sakura/socket_io.cc; sourceTree = "<group>"; };
+		7DBC2AE61C2BD3FF00425A60 /* socket_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = socket_io.h; path = ../sakura/socket_io.h; sourceTree = "<group>"; };
+		7DBC2AE71C2BD3FF00425A60 /* string_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = string_utils.h; path = ../sakura/string_utils.h; sourceTree = "<group>"; };
+		7DBC2AE81C2BD3FF00425A60 /* url_utils-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "url_utils-inl.h"; path = "../sakura/url_utils-inl.h"; sourceTree = "<group>"; };
+		7DBC2AE91C2BD3FF00425A60 /* websocket_thread_helper.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = websocket_thread_helper.cc; path = ../sakura/websocket_thread_helper.cc; sourceTree = "<group>"; };
+		7DBC2AEA1C2BD3FF00425A60 /* websocket_thread_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = websocket_thread_helper.h; path = ../sakura/websocket_thread_helper.h; sourceTree = "<group>"; };
+		7DBC2AEB1C2BD3FF00425A60 /* websocket.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = websocket.cc; path = ../sakura/websocket.cc; sourceTree = "<group>"; };
+		7DBC2AEC1C2BD3FF00425A60 /* websocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = websocket.h; path = ../sakura/websocket.h; sourceTree = "<group>"; };
+		7DBC2B091C2BD40600425A60 /* file_utils_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_utils_ios.h; sourceTree = "<group>"; };
+		7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = file_utils_ios.mm; sourceTree = "<group>"; };
+		7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = http_client_cocoa.mm; sourceTree = "<group>"; };
+		7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = log_cocoa.mm; sourceTree = "<group>"; };
+		7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = websocket_thread_helper_cocoa.mm; sourceTree = "<group>"; };
 		7DC00B721C2A5F16002A6099 /* libwebsockets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebsockets.a; path = ../../external/websockets/prebuilt/ios/libwebsockets.a; sourceTree = "<group>"; };
-		7DCBC0511C28F7B30082A846 /* sio_packet.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_packet.cc; sourceTree = "<group>"; };
-		7DCBC0521C28F7B30082A846 /* sio_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_packet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,51 +163,37 @@
 		7D628DD51C27D32F00CBC088 /* core */ = {
 			isa = PBXGroup;
 			children = (
-				7D628DF21C27D32F00CBC088 /* README.md */,
-				7D628DF31C27D32F00CBC088 /* sakura.h */,
-				7D628DF11C27D32F00CBC088 /* macros.h */,
-				7D628E8B1C27DAD200CBC088 /* socket_io.cc */,
-				7D628E8C1C27DAD200CBC088 /* socket_io.h */,
-				7D6197D41C29239400C42B19 /* sio_client.cc */,
-				7D6197D51C29239400C42B19 /* sio_client.h */,
-				7D628E8F1C27E2A700CBC088 /* sio_client_impl.cc */,
-				7D628E901C27E2A700CBC088 /* sio_client_impl.h */,
-				7DCBC0511C28F7B30082A846 /* sio_packet.cc */,
-				7DCBC0521C28F7B30082A846 /* sio_packet.h */,
-				7D628E5B1C27D58100CBC088 /* websocket.cc */,
-				7D628E5C1C27D58100CBC088 /* websocket.h */,
-				7D72A52C1C28333400FEB2E4 /* websocket_thread_helper.cc */,
-				7D72A52D1C28333400FEB2E4 /* websocket_thread_helper.h */,
-				7D628DE61C27D32F00CBC088 /* file_utils.cc */,
-				7D628DE71C27D32F00CBC088 /* file_utils.h */,
-				7D628DE81C27D32F00CBC088 /* http_client.cc */,
-				7D628DE91C27D32F00CBC088 /* http_client.h */,
-				7D628DEA1C27D32F00CBC088 /* http_multipart_request.cc */,
-				7D628DEB1C27D32F00CBC088 /* http_multipart_request.h */,
-				7D628DEC1C27D32F00CBC088 /* http_request.cc */,
-				7D628DED1C27D32F00CBC088 /* http_request.h */,
-				7D628DEE1C27D32F00CBC088 /* http_response.cc */,
-				7D628DEF1C27D32F00CBC088 /* http_response.h */,
-				7D628DF01C27D32F00CBC088 /* log.h */,
-				7D628DF41C27D32F00CBC088 /* string_utils.cc */,
-				7D628DF51C27D32F00CBC088 /* string_utils.h */,
-				7D628DF81C27D32F00CBC088 /* url_utils-inl.h */,
-				7D628DE11C27D32F00CBC088 /* cocoa */,
+				7DBC2B081C2BD40600425A60 /* cocoa */,
+				7DBC2AD21C2BD3FF00425A60 /* file_utils.cc */,
+				7DBC2AD31C2BD3FF00425A60 /* file_utils.h */,
+				7DBC2AD41C2BD3FF00425A60 /* http_client.cc */,
+				7DBC2AD51C2BD3FF00425A60 /* http_client.h */,
+				7DBC2AD61C2BD3FF00425A60 /* http_multipart_request.cc */,
+				7DBC2AD71C2BD3FF00425A60 /* http_multipart_request.h */,
+				7DBC2AD81C2BD3FF00425A60 /* http_request.cc */,
+				7DBC2AD91C2BD3FF00425A60 /* http_request.h */,
+				7DBC2ADA1C2BD3FF00425A60 /* http_response.cc */,
+				7DBC2ADB1C2BD3FF00425A60 /* http_response.h */,
+				7DBC2ADC1C2BD3FF00425A60 /* log.h */,
+				7DBC2ADD1C2BD3FF00425A60 /* macros.h */,
+				7DBC2ADE1C2BD3FF00425A60 /* sakura.h */,
+				7DBC2ADF1C2BD3FF00425A60 /* sio_client_impl.cc */,
+				7DBC2AE01C2BD3FF00425A60 /* sio_client_impl.h */,
+				7DBC2AE11C2BD3FF00425A60 /* sio_client.cc */,
+				7DBC2AE21C2BD3FF00425A60 /* sio_client.h */,
+				7DBC2AE31C2BD3FF00425A60 /* sio_packet.cc */,
+				7DBC2AE41C2BD3FF00425A60 /* sio_packet.h */,
+				7DBC2AE51C2BD3FF00425A60 /* socket_io.cc */,
+				7DBC2AE61C2BD3FF00425A60 /* socket_io.h */,
+				7DBC2AE71C2BD3FF00425A60 /* string_utils.h */,
+				7DBC2AE81C2BD3FF00425A60 /* url_utils-inl.h */,
+				7DBC2AE91C2BD3FF00425A60 /* websocket_thread_helper.cc */,
+				7DBC2AEA1C2BD3FF00425A60 /* websocket_thread_helper.h */,
+				7DBC2AEB1C2BD3FF00425A60 /* websocket.cc */,
+				7DBC2AEC1C2BD3FF00425A60 /* websocket.h */,
 			);
 			name = core;
 			path = ../../core;
-			sourceTree = "<group>";
-		};
-		7D628DE11C27D32F00CBC088 /* cocoa */ = {
-			isa = PBXGroup;
-			children = (
-				7D628DE21C27D32F00CBC088 /* file_utils_ios.h */,
-				7D628DE31C27D32F00CBC088 /* file_utils_ios.mm */,
-				7D628DE41C27D32F00CBC088 /* http_client_cocoa.mm */,
-				7D628DE51C27D32F00CBC088 /* log_cocoa.mm */,
-				7D72A5301C2835D300FEB2E4 /* websocket_thread_helper_cocoa.mm */,
-			);
-			path = cocoa;
 			sourceTree = "<group>";
 		};
 		7D628E251C27D3A900CBC088 /* external */ = {
@@ -226,6 +209,19 @@
 			name = external;
 			sourceTree = "<group>";
 		};
+		7DBC2B081C2BD40600425A60 /* cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				7DBC2B091C2BD40600425A60 /* file_utils_ios.h */,
+				7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */,
+				7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */,
+				7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */,
+				7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */,
+			);
+			name = cocoa;
+			path = ../sakura/cocoa;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -233,24 +229,24 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D628E0A1C27D32F00CBC088 /* file_utils_ios.h in Headers */,
-				7D6197D71C29239400C42B19 /* sio_client.h in Headers */,
-				7D628E921C27E2A700CBC088 /* sio_client_impl.h in Headers */,
-				7D628E1B1C27D32F00CBC088 /* sakura.h in Headers */,
+				7DBC2B031C2BD3FF00425A60 /* url_utils-inl.h in Headers */,
+				7DBC2AEE1C2BD3FF00425A60 /* file_utils.h in Headers */,
+				7DBC2AF71C2BD3FF00425A60 /* log.h in Headers */,
+				7DBC2B011C2BD3FF00425A60 /* socket_io.h in Headers */,
+				7DBC2AF41C2BD3FF00425A60 /* http_request.h in Headers */,
+				7DBC2AFD1C2BD3FF00425A60 /* sio_client.h in Headers */,
+				7DBC2AFF1C2BD3FF00425A60 /* sio_packet.h in Headers */,
+				7DBC2AF81C2BD3FF00425A60 /* macros.h in Headers */,
+				7DBC2B021C2BD3FF00425A60 /* string_utils.h in Headers */,
+				7DBC2AF01C2BD3FF00425A60 /* http_client.h in Headers */,
+				7DBC2AFB1C2BD3FF00425A60 /* sio_client_impl.h in Headers */,
+				7DBC2AF61C2BD3FF00425A60 /* http_response.h in Headers */,
+				7DBC2B0E1C2BD40600425A60 /* file_utils_ios.h in Headers */,
+				7DBC2B051C2BD3FF00425A60 /* websocket_thread_helper.h in Headers */,
 				7D6197DC1C293F3200C42B19 /* json11.hpp in Headers */,
-				7D628E111C27D32F00CBC088 /* http_client.h in Headers */,
-				7D628E191C27D32F00CBC088 /* macros.h in Headers */,
-				7D628E5E1C27D58100CBC088 /* websocket.h in Headers */,
-				7DCBC0541C28F7B30082A846 /* sio_packet.h in Headers */,
-				7D628E0F1C27D32F00CBC088 /* file_utils.h in Headers */,
-				7D628E1F1C27D32F00CBC088 /* url_utils-inl.h in Headers */,
-				7D628E151C27D32F00CBC088 /* http_request.h in Headers */,
-				7D628E171C27D32F00CBC088 /* http_response.h in Headers */,
-				7D628E8E1C27DAD200CBC088 /* socket_io.h in Headers */,
-				7D628E131C27D32F00CBC088 /* http_multipart_request.h in Headers */,
-				7D628E181C27D32F00CBC088 /* log.h in Headers */,
-				7D628E1D1C27D32F00CBC088 /* string_utils.h in Headers */,
-				7D72A52F1C28333400FEB2E4 /* websocket_thread_helper.h in Headers */,
+				7DBC2AF21C2BD3FF00425A60 /* http_multipart_request.h in Headers */,
+				7DBC2B071C2BD3FF00425A60 /* websocket.h in Headers */,
+				7DBC2AF91C2BD3FF00425A60 /* sakura.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,23 +317,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D628E0E1C27D32F00CBC088 /* file_utils.cc in Sources */,
-				7DCBC0531C28F7B30082A846 /* sio_packet.cc in Sources */,
-				7D72A5311C2835D300FEB2E4 /* websocket_thread_helper_cocoa.mm in Sources */,
-				7D628E0D1C27D32F00CBC088 /* log_cocoa.mm in Sources */,
+				7DBC2AEF1C2BD3FF00425A60 /* http_client.cc in Sources */,
 				7D6197DB1C293F3200C42B19 /* json11.cpp in Sources */,
-				7D628E101C27D32F00CBC088 /* http_client.cc in Sources */,
-				7D628E1C1C27D32F00CBC088 /* string_utils.cc in Sources */,
-				7D628E0C1C27D32F00CBC088 /* http_client_cocoa.mm in Sources */,
-				7D628E8D1C27DAD200CBC088 /* socket_io.cc in Sources */,
-				7D6197D61C29239400C42B19 /* sio_client.cc in Sources */,
-				7D628E911C27E2A700CBC088 /* sio_client_impl.cc in Sources */,
-				7D72A52E1C28333400FEB2E4 /* websocket_thread_helper.cc in Sources */,
-				7D628E161C27D32F00CBC088 /* http_response.cc in Sources */,
-				7D628E0B1C27D32F00CBC088 /* file_utils_ios.mm in Sources */,
-				7D628E5D1C27D58100CBC088 /* websocket.cc in Sources */,
-				7D628E121C27D32F00CBC088 /* http_multipart_request.cc in Sources */,
-				7D628E141C27D32F00CBC088 /* http_request.cc in Sources */,
+				7DBC2B121C2BD40600425A60 /* websocket_thread_helper_cocoa.mm in Sources */,
+				7DBC2AFC1C2BD3FF00425A60 /* sio_client.cc in Sources */,
+				7DBC2AF51C2BD3FF00425A60 /* http_response.cc in Sources */,
+				7DBC2B111C2BD40600425A60 /* log_cocoa.mm in Sources */,
+				7DBC2AF11C2BD3FF00425A60 /* http_multipart_request.cc in Sources */,
+				7DBC2AFA1C2BD3FF00425A60 /* sio_client_impl.cc in Sources */,
+				7DBC2B001C2BD3FF00425A60 /* socket_io.cc in Sources */,
+				7DBC2AFE1C2BD3FF00425A60 /* sio_packet.cc in Sources */,
+				7DBC2B101C2BD40600425A60 /* http_client_cocoa.mm in Sources */,
+				7DBC2B041C2BD3FF00425A60 /* websocket_thread_helper.cc in Sources */,
+				7DBC2AF31C2BD3FF00425A60 /* http_request.cc in Sources */,
+				7DBC2AED1C2BD3FF00425A60 /* file_utils.cc in Sources */,
+				7DBC2B061C2BD3FF00425A60 /* websocket.cc in Sources */,
+				7DBC2B0F1C2BD40600425A60 /* file_utils_ios.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
