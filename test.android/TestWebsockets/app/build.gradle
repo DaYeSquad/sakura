@@ -10,7 +10,7 @@ def getCoreAbsolutePath() {
 }
 
 def getExternalAbsolutePath() {
-    return getCoreAbsolutePath() + "../../../external"
+    return getCoreAbsolutePath() + "../../external"
 }
 
 model {
@@ -72,6 +72,7 @@ model {
         toolchainVersion = "4.9"
         platformVersion = 14
         abiFilters.add("armeabi")
+        abiFilters.add("x86")
 
         CFlags.add("-D NS_SKR_BEGIN")
         CFlags.add("-D NS_SKR_END")
@@ -88,27 +89,28 @@ model {
         cppFlags.add("-I${file("${sakuraCorePath}/../external/curl/curl")}".toString())
         cppFlags.add("-I${file("${sakuraCorePath}/../external/curl/curl/android/curl")}".toString())
         cppFlags.add("-I${file("${sakuraCorePath}/../external/websockets/include/android")}".toString())
+
+        cppFlags.add("-I${file("src/main/wrapper")}".toString())
     }
 
-    android.sources {
-        main {
-            jni {
-                source {
-                    srcDirs "../../../proj.android/jni",
-                            "${sakuraCorePath}",
-                            "${sakuraCorePath}/../external/json11"
+    android.sources.main {
+        jni {
+            source {
+                srcDirs "src/main/jni",
+                        "src/main/wrapper/",
+                        "${sakuraCorePath}",
+                        "${sakuraCorePath}/../external/json11"
 
-                    exclude "**/win32/*.cc",
-                            "**/cocoa/*.mm",
-                            "**/cocoa/*.cc"
-                }
+                exclude "**/win32/*.cc",
+                        "**/cocoa/*.mm",
+                        "**/cocoa/*.cc"
+            }
 
-                dependencies {
-                    library "websockets"
-                    library "curl"
-                    library "ssl"
-                    library "crypto"
-                }
+            dependencies {
+                library "curl"
+                library "ssl"
+                library "crypto"
+                library "websockets"
             }
         }
     }

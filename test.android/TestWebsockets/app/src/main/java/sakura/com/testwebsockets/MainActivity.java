@@ -5,12 +5,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.sakura.test.FeedMessageManager;
+
 public class MainActivity extends ActionBarActivity {
+
+    static {
+        System.loadLibrary("sakura");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FeedMessageManager feedMessageManager = new FeedMessageManager();
+        feedMessageManager.connect("ws://echo.websocekt.org");
     }
 
     @Override
