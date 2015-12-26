@@ -18,8 +18,13 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FeedMessageManager feedMessageManager = new FeedMessageManager();
-        feedMessageManager.connect("ws://echo.websocekt.org");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                FeedMessageManager feedMessageManager = new FeedMessageManager();
+                feedMessageManager.connect("ws://echo.websocket.org");
+            }
+        }).start();
     }
 
     @Override
