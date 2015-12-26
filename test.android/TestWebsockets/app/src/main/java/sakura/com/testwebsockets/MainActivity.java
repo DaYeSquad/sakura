@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void run() {
                 FeedMessageManager feedMessageManager = new FeedMessageManager();
-                feedMessageManager.connect("ws://echo.websocket.org");
+                feedMessageManager.connect("wss://echo.websocket.org");
             }
         }).start();
     }

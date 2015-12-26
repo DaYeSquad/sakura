@@ -88,7 +88,7 @@ bool Websocket::Init(const Websocket::Delegate& delegate, const std::string &url
   bool use_ssl = false;
   std::string host = url;
   size_t pos = 0;
-  int port = 80;
+  int port = 443;
   
   // ws://
   pos = host.find("ws://");
@@ -132,9 +132,7 @@ bool Websocket::Init(const Websocket::Delegate& delegate, const std::string &url
   
   char *name = new char[20];
   strcpy(name, "default-protocol");
-#if SKR_PLATFORM != SKR_PLATFORM_ANDROID
   protocols_[0].name = name;
-#endif
   protocols_[0].callback = WebSocketCallbackWrapper::OnSocketCallback;
   
   thread_helper_ = unique_ptr<WebsocketThreadHelper>(new WebsocketThreadHelper());
@@ -179,14 +177,6 @@ void Websocket::Connect() {
     ready_state_ = State::CONNECTING;
     string name = "default-protocol";
 
-#if SKR_PLATFORM != SKR_PLATFORM_ANDROID
-    const char* protocol = name.c_str();
-    #else
-    //If you don't want to specify a protocol, which is legal, use NULL here.For more detail,
-    //please read libwebsockets-api-doc.html
-    const char* protocol = NULL;
-#endif
-
     instance_ = libwebsocket_client_connect(context_,
                                             host_.c_str(),
                                             port_,
@@ -194,7 +184,7 @@ void Websocket::Connect() {
                                             path_.c_str(),
                                             host_.c_str(),
                                             host_.c_str(),
-                                            protocol,
+                                            name.c_str(),
                                             -1);
     if (instance_ == nullptr) {
       log_error("Websocket error instance is nullptr");
@@ -266,6 +256,7 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
       ready_state_ = State::OPEN;
       libwebsocket_callback_on_writable(context_, instance_);
       thread_helper_->NotifyWebsocketMessageByType(WebsocketMessage::Type::NOTIFY_OPEN);
+      Send("Hello");
     }
       break;
     case LWS_CALLBACK_CLIENT_WRITEABLE: {
