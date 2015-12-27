@@ -43,3 +43,8 @@ std::string FileUtilsiOS::GetWritablePath() {
   return [documentPath UTF8String];
 #endif
 }
+
+bool FileUtilsiOS::IsFileExist(const std::string& path) {
+  return [[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithUTF8String:path.c_str()]
+                                              isDirectory:nil];
+}

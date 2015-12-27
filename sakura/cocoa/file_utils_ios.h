@@ -23,6 +23,8 @@ public:
   // Utilities (overrides) --------------------------------------------------------
   
   virtual std::string GetWritablePath() OVERRIDE;
+  
+  virtual bool IsFileExist(const std::string& path) OVERRIDE;
 };
 
 NS_SKR_END

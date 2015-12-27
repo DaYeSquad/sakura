@@ -7,8 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D36491E1C2D177B002BD79E /* websocket.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AEC1C2BD3FF00425A60 /* websocket.h */; };
+		7D36491F1C2D1781002BD79E /* url_utils-inl.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AE81C2BD3FF00425A60 /* url_utils-inl.h */; };
+		7D3649201C2D1783002BD79E /* string_utils.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AE71C2BD3FF00425A60 /* string_utils.h */; };
+		7D3649211C2D1785002BD79E /* socket_io.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AE61C2BD3FF00425A60 /* socket_io.h */; };
+		7D3649221C2D1788002BD79E /* sio_client.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AE21C2BD3FF00425A60 /* sio_client.h */; };
+		7D3649231C2D1791002BD79E /* sakura.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2ADE1C2BD3FF00425A60 /* sakura.h */; };
+		7D3649241C2D1793002BD79E /* macros.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2ADD1C2BD3FF00425A60 /* macros.h */; };
+		7D3649251C2D1794002BD79E /* log.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2ADC1C2BD3FF00425A60 /* log.h */; };
+		7D3649261C2D1796002BD79E /* http_response.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2ADB1C2BD3FF00425A60 /* http_response.h */; };
+		7D3649271C2D1797002BD79E /* http_request.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AD91C2BD3FF00425A60 /* http_request.h */; };
+		7D3649281C2D1799002BD79E /* http_multipart_request.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AD71C2BD3FF00425A60 /* http_multipart_request.h */; };
+		7D3649291C2D179D002BD79E /* http_client.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AD51C2BD3FF00425A60 /* http_client.h */; };
+		7D36492A1C2D17A0002BD79E /* file_utils.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AD31C2BD3FF00425A60 /* file_utils.h */; };
+		7D36492C1C2D17FD002BD79E /* file_utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD21C2BD3FF00425A60 /* file_utils.cc */; };
+		7D36492D1C2D17FF002BD79E /* http_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD41C2BD3FF00425A60 /* http_client.cc */; };
+		7D36492E1C2D1801002BD79E /* http_multipart_request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD61C2BD3FF00425A60 /* http_multipart_request.cc */; };
+		7D36492F1C2D1805002BD79E /* http_request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD81C2BD3FF00425A60 /* http_request.cc */; };
+		7D3649301C2D1807002BD79E /* http_response.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2ADA1C2BD3FF00425A60 /* http_response.cc */; };
+		7D3649311C2D180C002BD79E /* sio_client_impl.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2ADF1C2BD3FF00425A60 /* sio_client_impl.cc */; };
+		7D3649321C2D180E002BD79E /* sio_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE11C2BD3FF00425A60 /* sio_client.cc */; };
+		7D3649331C2D1816002BD79E /* sio_packet.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE31C2BD3FF00425A60 /* sio_packet.cc */; };
+		7D3649341C2D1818002BD79E /* socket_io.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE51C2BD3FF00425A60 /* socket_io.cc */; };
+		7D3649351C2D181B002BD79E /* websocket_thread_helper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE91C2BD3FF00425A60 /* websocket_thread_helper.cc */; };
+		7D3649361C2D1821002BD79E /* websocket.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AEB1C2BD3FF00425A60 /* websocket.cc */; };
+		7D3649371C2D1823002BD79E /* file_utils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */; };
+		7D3649381C2D1825002BD79E /* http_client_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */; };
+		7D3649391C2D1826002BD79E /* log_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */; };
+		7D36493A1C2D1827002BD79E /* websocket_thread_helper_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */; };
 		7D6197DB1C293F3200C42B19 /* json11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6197D91C293F3200C42B19 /* json11.cpp */; };
-		7D6197DC1C293F3200C42B19 /* json11.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7D6197DA1C293F3200C42B19 /* json11.hpp */; };
+		7D6197DC1C293F3200C42B19 /* json11.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7D6197DA1C293F3200C42B19 /* json11.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D628E271C27D3B700CBC088 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E261C27D3B700CBC088 /* libcurl.a */; };
 		7D628E291C27D3C400CBC088 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E281C27D3C400CBC088 /* Security.framework */; };
 		7D628E2C1C27D40600CBC088 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E2A1C27D40600CBC088 /* libcrypto.a */; };
@@ -48,7 +76,36 @@
 		7DC00B731C2A5F16002A6099 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC00B721C2A5F16002A6099 /* libwebsockets.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7D3649131C2D1746002BD79E /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				7D3649231C2D1791002BD79E /* sakura.h in Copy Files */,
+				7D36491E1C2D177B002BD79E /* websocket.h in Copy Files */,
+				7D36491F1C2D1781002BD79E /* url_utils-inl.h in Copy Files */,
+				7D3649201C2D1783002BD79E /* string_utils.h in Copy Files */,
+				7D3649221C2D1788002BD79E /* sio_client.h in Copy Files */,
+				7D3649241C2D1793002BD79E /* macros.h in Copy Files */,
+				7D3649211C2D1785002BD79E /* socket_io.h in Copy Files */,
+				7D3649271C2D1797002BD79E /* http_request.h in Copy Files */,
+				7D3649251C2D1794002BD79E /* log.h in Copy Files */,
+				7D3649281C2D1799002BD79E /* http_multipart_request.h in Copy Files */,
+				7D3649261C2D1796002BD79E /* http_response.h in Copy Files */,
+				7D3649291C2D179D002BD79E /* http_client.h in Copy Files */,
+				7D36492A1C2D17A0002BD79E /* file_utils.h in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7D3649151C2D1746002BD79E /* libsakura.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsakura.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D3649171C2D1746002BD79E /* libsakura.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libsakura.h; sourceTree = "<group>"; };
+		7D3649191C2D1746002BD79E /* libsakura.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libsakura.m; sourceTree = "<group>"; };
 		7D6197D91C293F3200C42B19 /* json11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json11.cpp; sourceTree = "<group>"; };
 		7D6197DA1C293F3200C42B19 /* json11.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json11.hpp; sourceTree = "<group>"; };
 		7D628D731C27D11600CBC088 /* sakura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sakura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +154,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7D3649121C2D1746002BD79E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D628D6F1C27D11600CBC088 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,6 +176,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D3649161C2D1746002BD79E /* libsakura */ = {
+			isa = PBXGroup;
+			children = (
+				7D3649171C2D1746002BD79E /* libsakura.h */,
+				7D3649191C2D1746002BD79E /* libsakura.m */,
+			);
+			path = libsakura;
+			sourceTree = "<group>";
+		};
 		7D6197D81C293F3200C42B19 /* json11 */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				7D628D751C27D11600CBC088 /* sakura */,
+				7D3649161C2D1746002BD79E /* libsakura */,
 				7D628D741C27D11600CBC088 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				7D628D731C27D11600CBC088 /* sakura.framework */,
+				7D3649151C2D1746002BD79E /* libsakura.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +328,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		7D3649141C2D1746002BD79E /* libsakura */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D36491D1C2D1746002BD79E /* Build configuration list for PBXNativeTarget "libsakura" */;
+			buildPhases = (
+				7D3649111C2D1746002BD79E /* Sources */,
+				7D3649121C2D1746002BD79E /* Frameworks */,
+				7D3649131C2D1746002BD79E /* Copy Files */,
+				7DE9C69B1C2E103000A0DE29 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libsakura;
+			productName = libsakura;
+			productReference = 7D3649151C2D1746002BD79E /* libsakura.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		7D628D721C27D11600CBC088 /* sakura */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D628D7B1C27D11600CBC088 /* Build configuration list for PBXNativeTarget "sakura" */;
@@ -280,6 +373,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Frank Lin";
 				TargetAttributes = {
+					7D3649141C2D1746002BD79E = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					7D628D721C27D11600CBC088 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -298,6 +394,7 @@
 			projectRoot = "";
 			targets = (
 				7D628D721C27D11600CBC088 /* sakura */,
+				7D3649141C2D1746002BD79E /* libsakura */,
 			);
 		};
 /* End PBXProject section */
@@ -312,7 +409,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7DE9C69B1C2E103000A0DE29 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "../tools/build-ios-fat-library/build-ios-fat-library.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		7D3649111C2D1746002BD79E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D36492C1C2D17FD002BD79E /* file_utils.cc in Sources */,
+				7D3649371C2D1823002BD79E /* file_utils_ios.mm in Sources */,
+				7D3649381C2D1825002BD79E /* http_client_cocoa.mm in Sources */,
+				7D3649391C2D1826002BD79E /* log_cocoa.mm in Sources */,
+				7D36493A1C2D1827002BD79E /* websocket_thread_helper_cocoa.mm in Sources */,
+				7D36492D1C2D17FF002BD79E /* http_client.cc in Sources */,
+				7D36492F1C2D1805002BD79E /* http_request.cc in Sources */,
+				7D3649301C2D1807002BD79E /* http_response.cc in Sources */,
+				7D3649311C2D180C002BD79E /* sio_client_impl.cc in Sources */,
+				7D3649321C2D180E002BD79E /* sio_client.cc in Sources */,
+				7D36492E1C2D1801002BD79E /* http_multipart_request.cc in Sources */,
+				7D3649341C2D1818002BD79E /* socket_io.cc in Sources */,
+				7D3649361C2D1821002BD79E /* websocket.cc in Sources */,
+				7D3649351C2D181B002BD79E /* websocket_thread_helper.cc in Sources */,
+				7D3649331C2D1816002BD79E /* sio_packet.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D628D6E1C27D11600CBC088 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +474,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		7D36491B1C2D1746002BD79E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D628DD21C27D21600CBC088 /* ios-debug.xcconfig */;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = sakura;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7D36491C1C2D1746002BD79E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D628DD41C27D21600CBC088 /* ios-release.xcconfig */;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = sakura;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		7D628D791C27D11600CBC088 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -466,6 +623,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7D36491D1C2D1746002BD79E /* Build configuration list for PBXNativeTarget "libsakura" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D36491B1C2D1746002BD79E /* Debug */,
+				7D36491C1C2D1746002BD79E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7D628D6D1C27D11600CBC088 /* Build configuration list for PBXProject "sakura" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -13,7 +13,7 @@
 
 NS_SKR_BEGIN
 
-//File utils
+/// Singleton file utils.
 class SKR_DLL FileUtils {
 public:
   
@@ -22,7 +22,7 @@ public:
   FileUtils();
   virtual ~FileUtils();
   
-  //Shared instance
+  // shared instance
   static FileUtils* SharedFileUtils();
   static void PurgeFileUtils();
   
@@ -46,6 +46,8 @@ public:
   // Utils should be override on each platform --------------------------------------------------------
   
   virtual std::string GetWritablePath() = 0; // used for unit test
+  
+  virtual bool IsFileExist(const std::string& path) = 0;
   
 protected:
   static FileUtils* s_shared_fileutil_;
