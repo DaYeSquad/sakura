@@ -88,7 +88,7 @@ bool Websocket::Init(const Websocket::Delegate& delegate, const std::string &url
   bool use_ssl = false;
   std::string host = url;
   size_t pos = 0;
-  int port = 80;
+  int port = 443;
   
   // ws://
   pos = host.find("ws://");
@@ -176,7 +176,7 @@ void Websocket::Connect() {
   if (context_ != nullptr) {
     ready_state_ = State::CONNECTING;
     string name = "default-protocol";
-    
+
     instance_ = libwebsocket_client_connect(context_,
                                             host_.c_str(),
                                             port_,
@@ -189,7 +189,7 @@ void Websocket::Connect() {
     if (instance_ == nullptr) {
       log_error("Websocket error instance is nullptr");
       ready_state_ = State::CLOSING;
-      
+
       thread_helper_->NotifyWebsocketMessageByType(WebsocketMessage::Type::NOTIFY_ERROR);
     }
   }
@@ -201,11 +201,11 @@ void Websocket::Send(const std::string& message) {
     data->bytes = new char[message.length() + 1];
     strcpy(data->bytes, message.c_str());
     data->length = static_cast<ssize_t>(message.length());
-    
+
     unique_ptr<WebsocketMessage> ws_msg(new WebsocketMessage());
     ws_msg->type = WebsocketMessage::Type::SENDING_STRING;
     ws_msg->obj = data;
-    
+
     thread_helper_->DispatchWebsocketMessage(std::move(ws_msg));
   }
 }
@@ -217,13 +217,13 @@ int Websocket::OnRunLoop() {
     libwebsocket_context_destroy(context_);
     return 1; // exist run loop
   }
-  
+
   if (context_ && ready_state_ != State::CLOSING && ready_state_ != State::CLOSED) {
     libwebsocket_service(context_, 0);
   }
-  
+
   std::this_thread::sleep_for(std::chrono::microseconds(50));
-  
+
   return 0;
 }
 
@@ -235,7 +235,7 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
                                 ssize_t len) {
   assert(context_ == nullptr || ctx == context_); // Invalid context
   assert(instance_ == nullptr || wsi == nullptr || wsi == instance_); //Invaild websocket instance
-  
+
   switch (reason) {
     case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
     case LWS_CALLBACK_PROTOCOL_DESTROY:
@@ -256,32 +256,33 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
       ready_state_ = State::OPEN;
       libwebsocket_callback_on_writable(context_, instance_);
       thread_helper_->NotifyWebsocketMessageByType(WebsocketMessage::Type::NOTIFY_OPEN);
+      Send("Hello");
     }
       break;
     case LWS_CALLBACK_CLIENT_WRITEABLE: {
       int num_bytes_write = 0;
       std::lock_guard<std::mutex> lg(thread_helper_->thread_messages_mutex_);
-      
+
       auto it = thread_helper_->thread_messages_.begin();
       for (; it != thread_helper_->thread_messages_.end();) {
         if ((*it)->type == WebsocketMessage::Type::SENDING_STRING) {
           Data* data = reinterpret_cast<Data*>((*it)->obj);
-          
+
           size_t remaining = data->length - data->issued;
           size_t n = std::min(remaining, kWebsocketWriteBufferSize);
-          
+
           unsigned char* buf = new unsigned char[LWS_SEND_BUFFER_PRE_PADDING + n +LWS_SEND_BUFFER_POST_PADDING];
           memcpy(reinterpret_cast<char*>(&buf[LWS_SEND_BUFFER_PRE_PADDING]), data->bytes + data->issued, n);
-          
+
           int write_protocol = 0;
-          
+
           if (data->issued == 0) {
             if ((*it)->type == WebsocketMessage::Type::SENDING_STRING) {
               write_protocol = LWS_WRITE_TEXT;
             } else {
               write_protocol = LWS_WRITE_BINARY;
             }
-            
+
             // If we have more than 1 fragment
             if (data->length > kWebsocketWriteBufferSize) {
               write_protocol |= LWS_WRITE_NO_FIN;
@@ -293,12 +294,12 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
             if (remaining != n)
               write_protocol |= LWS_WRITE_NO_FIN;
           }
-          
+
           num_bytes_write = libwebsocket_write(instance_,
                                                &buf[LWS_SEND_BUFFER_PRE_PADDING],
                                                n,
                                                (libwebsocket_write_protocol)write_protocol);
-          
+
           if (num_bytes_write < 0) { // buffer overrun?
             break;
           } else if (remaining != n) { // do we have another fragments to send?
@@ -312,14 +313,14 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
           }
         }
       }
-      
+
       // get notified as soon as can write again
       libwebsocket_callback_on_writable(context_, instance_);
     }
       break;
     case LWS_CALLBACK_CLOSED: {
       log_event("OnSocketCallback LWS_CALLBACK_CLOSED \n");
-      
+
       thread_helper_->QuitThread();
       if (ready_state_ != State::CLOSED) {
         ready_state_ = State::CLOSED;
@@ -329,7 +330,7 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
       break;
     case LWS_CALLBACK_CLIENT_RECEIVE: {
       log_event("OnSocketCallback LWS_CALLBACK_CLIENT_RECEIVE, len is %zd \n", len);
-      
+
       if (in && len > 0) {
         // accumulate the data (increasing the buffer as we go)
         if (current_data_length_ == 0) {
@@ -344,17 +345,17 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
           current_data_ = new_data;
           current_data_length_ = current_data_length_ + len;
         }
-        
+
         pending_frame_data_length_ = libwebsockets_remaining_packet_payload(instance_);
-        
+
         if (pending_frame_data_length_ > 0) {
           // pending data to receive
         }
-        
+
         // if no more data pending, send it to the client thread
         if (pending_frame_data_length_ == 0) {
           Websocket::Data* data = new Websocket::Data();
-          
+
           char* bytes = nullptr;
           if (lws_frame_is_binary(instance_)) {
             bytes = new char[current_data_length_];
@@ -364,20 +365,20 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
             bytes[current_data_length_] = '\0';
             data->is_binary = false;
           }
-          
+
           memcpy(bytes, current_data_, current_data_length_);
-          
+
           data->bytes = bytes;
           data->length = current_data_length_;
-          
+
           unique_ptr<WebsocketMessage> ws_msg(new WebsocketMessage());
           ws_msg->type = WebsocketMessage::Type::NOTIFY_MESSAGE;
           ws_msg->obj = static_cast<void*>(data);
-          
+
           delete [] current_data_;
           current_data_ = nullptr;
           current_data_length_ = 0;
-          
+
           thread_helper_->NotifyWebsocketMessage(std::move(ws_msg));
         }
       }
