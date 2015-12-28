@@ -1,0 +1,11 @@
+// Copyright 2014 Frank Lin (lin.xiaoe.f@gmail.com). All rights reserved.
+// Use of this source code is governed by a license that can be
+// found in the LICENSE file.
+
+#include "ios-common.xcconfig"
+
+HEADER_SEARCH_PATHS = ../sakura ../external ../external/gtest/include ../external/curl/curl
+
+LIBRARY_SEARCH_PATHS = ../external/gtest/prebuilt/ios ../external/curl/prebuilt/iOS
+
+GCC_PREPROCESSOR_DEFINITIONS = SKR_PLATFORM=SKR_PLATFORM_IOS

@@ -36,11 +36,11 @@ std::string FileUtilsiOS::GetWritablePath() {
                                                          appropriateForURL:nil
                                                                     create:YES
                                                                      error:&error];
-  return [app_support_dir UTF8String];
+  return [[app_support_dir absoluteString] UTF8String];
 #elif SKR_PLATFORM == SKR_PLATFORM_IOS
-  NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *documentPath = [searchPaths objectAtIndex:0];
-  return [documentPath UTF8String];
+  NSArray *search_paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *document_path = [search_paths objectAtIndex:0];
+  return [document_path UTF8String];
 #endif
 }
 
