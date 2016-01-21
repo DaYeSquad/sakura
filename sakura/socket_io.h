@@ -37,11 +37,15 @@ public:
     virtual ~Delegate() {}
     
     virtual void OnConnect(SIOClient* client) {
+#ifdef SKR_LOG_SIO
       sakura::log_event("SocketIO::Delegate OnConnect fired");
+#endif
     }
     
     virtual void OnMessage(SIOClient* client, const std::string& data) {
+#ifdef SKR_LOG_SIO
       sakura::log_event("SocketIO::Delegate OnMessage %s", data.c_str());
+#endif
     }
     
     virtual void OnClose(SIOClient* client) = 0;

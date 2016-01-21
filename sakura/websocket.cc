@@ -123,7 +123,9 @@ bool Websocket::Init(const Websocket::Delegate& delegate, const std::string &url
   path_ = path;
   ssl_connection_ = use_ssl ? 2 : 0; // 2 means accept self-signed certificate
   
+#ifdef SKR_LOG_WEBSOCKET
   sakura::log_event("Websocket host is %s, port is %d, path is %s \n", host_.c_str(), port_, path_.c_str());
+#endif
   
   delegate_ = const_cast<Delegate*>(&delegate);
   
@@ -148,7 +150,9 @@ void Websocket::Close() {
     return;
   }
   
+#ifdef SKR_LOG_WEBSOCKET
   sakura::log_event("Websocket connection closed by client");
+#endif
   
   ready_state_ = State::CLOSED;
   
@@ -160,7 +164,9 @@ void Websocket::Close() {
 }
 
 void Websocket::Connect() {
+#ifdef SKR_LOG_WEBSOCKET
   log_event("Websocket::Connect %d \n", protocols_ == nullptr);
+#endif
   
   struct lws_context_creation_info info;
   memset(&info, 0, sizeof(info));
@@ -240,7 +246,9 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
     case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
     case LWS_CALLBACK_PROTOCOL_DESTROY:
     case LWS_CALLBACK_DEL_POLL_FD: {
+#ifdef SKR_LOG_WEBSOCKET
       log_error("OnSocketCallback some error happens %d \n", reason);
+#endif
       if (reason == LWS_CALLBACK_CLIENT_CONNECTION_ERROR ||
           (reason == LWS_CALLBACK_PROTOCOL_DESTROY && ready_state_ == State::CONNECTING) ||
           (reason == LWS_CALLBACK_DEL_POLL_FD && ready_state_ == State::CONNECTING)) {
@@ -252,7 +260,9 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
     }
       break;
     case LWS_CALLBACK_CLIENT_ESTABLISHED: {
+#ifdef SKR_LOG_WEBSOCKET
       log_event("OnSocketCallback LWS_CALLBACK_CLIENT_ESTABLISHED \n");
+#endif
       ready_state_ = State::OPEN;
       libwebsocket_callback_on_writable(context_, instance_);
       thread_helper_->NotifyWebsocketMessageByType(WebsocketMessage::Type::NOTIFY_OPEN);
@@ -318,7 +328,9 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
     }
       break;
     case LWS_CALLBACK_CLOSED: {
+#ifdef SKR_LOG_WEBSOCKET
       log_event("OnSocketCallback LWS_CALLBACK_CLOSED \n");
+#endif
 
       thread_helper_->QuitThread();
       if (ready_state_ != State::CLOSED) {
@@ -328,7 +340,9 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
     }
       break;
     case LWS_CALLBACK_CLIENT_RECEIVE: {
+#ifdef SKR_LOG_WEBSOCKET
       log_event("OnSocketCallback LWS_CALLBACK_CLIENT_RECEIVE, len is %zd \n", len);
+#endif
 
       if (in && len > 0) {
         // accumulate the data (increasing the buffer as we go)
@@ -384,7 +398,9 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
     }
       break;
     case LWS_CALLBACK_PROTOCOL_INIT:
+#ifdef SKR_LOG_WEBSOCKET
       log_event("OnSocketCallback LWS_CALLBACK_PROTOCOL_INIT \n");
+#endif
       break;
     default:
       break;

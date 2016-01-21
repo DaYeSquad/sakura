@@ -8,6 +8,8 @@
 
 IPHONEOS_DEPLOYMENT_TARGET = 8.0
 
-OTHER_LDFLAGS = -lz
+OTHER_LDFLAGS = -lz -lcurl -lwebsockets -lcrypto -lssl -lsakura
+
+HEADER_SEARCH_PATHS = ../../
 
 LIBRARY_SEARCH_PATHS = ../../external/openssl/lib ../../external/curl/prebuilt/iOS ../../external/websockets/prebuilt/ios ../../prebuilt/ios

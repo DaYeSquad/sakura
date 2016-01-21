@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7D3CED3F1C50CE22005540AB /* build-ios-universal-library */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7D3CED421C50CE22005540AB /* Build configuration list for PBXAggregateTarget "build-ios-universal-library" */;
+			buildPhases = (
+				7D3CED431C50CE27005540AB /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "build-ios-universal-library";
+			productName = "build-ios-universal-library";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		7D36491E1C2D177B002BD79E /* websocket.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AEC1C2BD3FF00425A60 /* websocket.h */; };
 		7D36491F1C2D1781002BD79E /* url_utils-inl.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 7DBC2AE81C2BD3FF00425A60 /* url_utils-inl.h */; };
@@ -139,6 +153,8 @@
 
 /* Begin PBXFileReference section */
 		7D3649151C2D1746002BD79E /* libsakura.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsakura.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D3CED451C50CFAB005540AB /* build-ios-universal-library.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "build-ios-universal-library.sh"; path = "../../tools/build-ios-fat-library/build-ios-universal-library.sh"; sourceTree = "<group>"; };
+		7D49F9361C50C53E002C06B9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7D6197D91C293F3200C42B19 /* json11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json11.cpp; sourceTree = "<group>"; };
 		7D6197DA1C293F3200C42B19 /* json11.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json11.hpp; sourceTree = "<group>"; };
 		7D628D731C27D11600CBC088 /* sakura-ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "sakura-ios.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +239,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D3CED441C50CF9A005540AB /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				7D3CED451C50CFAB005540AB /* build-ios-universal-library.sh */,
+			);
+			name = tools;
+			path = sakura;
+			sourceTree = "<group>";
+		};
 		7D6197D81C293F3200C42B19 /* json11 */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +261,9 @@
 		7D628D691C27D11600CBC088 = {
 			isa = PBXGroup;
 			children = (
+				7D49F9361C50C53E002C06B9 /* README.md */,
 				7D628D751C27D11600CBC088 /* sakura */,
+				7D3CED441C50CF9A005540AB /* tools */,
 				7D628D741C27D11600CBC088 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -477,6 +504,9 @@
 					7D3649141C2D1746002BD79E = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					7D3CED3F1C50CE22005540AB = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					7D628D721C27D11600CBC088 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -500,6 +530,7 @@
 				7D628D721C27D11600CBC088 /* sakura-ios */,
 				7D3649141C2D1746002BD79E /* libsakura-ios */,
 				7DE007521C30D75000A3FB76 /* sakura-cocoa */,
+				7D3CED3F1C50CE22005540AB /* build-ios-universal-library */,
 			);
 		};
 /* End PBXProject section */
@@ -522,6 +553,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7D3CED431C50CE27005540AB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "../tools/build-ios-fat-library/build-ios-universal-library.sh";
+		};
 		7DE9C69B1C2E103000A0DE29 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,6 +673,20 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = sakura;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7D3CED401C50CE22005540AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7D3CED411C50CE22005540AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -808,6 +866,15 @@
 			buildConfigurations = (
 				7D36491B1C2D1746002BD79E /* Debug */,
 				7D36491C1C2D1746002BD79E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D3CED421C50CE22005540AB /* Build configuration list for PBXAggregateTarget "build-ios-universal-library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D3CED401C50CE22005540AB /* Debug */,
+				7D3CED411C50CE22005540AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

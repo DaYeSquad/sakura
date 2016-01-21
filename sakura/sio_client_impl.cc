@@ -32,7 +32,9 @@ void SIOClientImpl::Connect(const std::map<std::string, std::string>& user_heade
 }
 
 void SIOClientImpl::Handshake(const std::map<std::string, std::string>& user_headers) {
+#ifdef SKR_LOG_SIO
   sakura::log_event("SIOClientImpl::Handshake");
+#endif
   
   std::stringstream ss;
   if (use_ssl_) {
@@ -52,23 +54,29 @@ void SIOClientImpl::Handshake(const std::map<std::string, std::string>& user_hea
   }
   
   HttpClient::SharedClient()->Send(std::move(http_request), [this](std::unique_ptr<HttpResponse> http_response) {
+#ifdef SKR_LOG_SIO
     sakura::log_event("SIOClientImpl::Handshake completed");
+#endif
     
     if (!http_response->is_succeed()) {
       sakura::log_error("SIOClientImpl::Handshake failed : %s", http_response->error_buffer().c_str());
     }
-    
+#ifdef SKR_LOG_SIO
     sakura::log_event("SIOClientImpl::Handshake successed");
+#endif
     
     string res = http_response->response_data_as_string();
     string sid = "";
     int heartbeat = 0;
     int timeout = 0;
-    
+#ifdef SKR_LOG_SIO
     sakura::log_event("SIOClientImpl::Hanshake dump data : %s", res.c_str());
+#endif
     
     if (res.at(res.size() - 1) == '}') {
+#ifdef SKR_LOG_SIO
       sakura::log_event("SIOClientImpl::Handshake Socket.IO 1.x detected");
+#endif
       
       std::string::size_type a, b;
       a = res.find('{');
@@ -102,8 +110,9 @@ void SIOClientImpl::Handshake(const std::map<std::string, std::string>& user_hea
       
       std::string timeout_str = temp.substr(a + 1, b - a);
       timeout = atoi(timeout_str.c_str()) / 1000;
-      
+#ifdef SKR_LOG_SIO
       sakura::log_event("SIOClientImpl::Handshake done parsing 1.x");
+#endif
 
     } else {
       sakura::log_error("SIOClientImpl::Handshake unimplementation Socket.IO 0.9.x detected");
@@ -126,8 +135,9 @@ void SIOClientImpl::OpenSocket() {
     ss << "ws://";
   }
   ss << uri_ << "/socket.io/1/websocket/?EIO=2&transport=websocket&sid=" << sid_;
-  
+#ifdef SKR_LOG_SIO
   sakura::log_event("SIOClientImpl::OpenSocket %s", ss.str().c_str());
+#endif
   
   websocket_ = unique_ptr<Websocket>(new Websocket());
   websocket_->Init(*this, ss.str());
@@ -155,7 +165,9 @@ void SIOClientImpl::ConnectToEndpoint(const std::string& endpoint) {
 void SIOClientImpl::DisconnectFromEndpoint(const std::string& endpoint) {
   clients_.erase(endpoint);
   if (clients_.empty() || endpoint == "/") {
+#ifdef SKR_LOG_SIO
     log_event("SIOClientImpl::DisconnectFromEndpoint check for disconnection");
+#endif
     if (connected_) {
       Disconnect();
     }
@@ -169,7 +181,9 @@ void SIOClientImpl::DisconnectFromEndpoint(const std::string& endpoint) {
 void SIOClientImpl::Send(const SIOPacket& packet) {
   string req = packet.ToString();
   if (connected_) {
+#ifdef SKR_LOG_SIO
     log_event("SIOClientImpl::Send %s", req.c_str());
+#endif
     websocket_->Send(req);
   } else {
     log_error("SIOClientImpl::Send (%s) failed because of disconnection", req.c_str());
@@ -181,7 +195,9 @@ void SIOClientImpl::Send(const std::string& endpoint, const std::string& s) {
 }
 
 void SIOClientImpl::Emit(const std::string& endpoint, const std::string& eventname, const std::string& args) {
+#ifdef SKR_LOG_SIO
   log_event("SIOClientImpl::Emit %s", eventname.c_str());
+#endif
   
   unique_ptr<SIOPacket> packet = SIOPacket::SIOPacketWithType(SIOPacket::Type::EVENT);
   packet->set_endpoint(endpoint == "/" ? "" : endpoint);
@@ -217,11 +233,15 @@ void SIOClientImpl::OnOpen(const Websocket *ws) {
   // schedule heartbeat
   ScheduleHeartbeat();
   
+#ifdef SKR_LOG_SIO
   log_event("SIOClientImpl::OnOpen socket connected");
+#endif
 }
 
 void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) {
+#ifdef SKR_LOG_SIO
   log_event("SIOClientImpl::OnMessage : %s", data.bytes);
+#endif
   
   string payload = data.bytes;
   int control = atoi(payload.substr(0, 1).c_str());
@@ -237,13 +257,17 @@ void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) 
       log_error("Not supposed to receive 1 for websocket");
       break;
     case 2: {
+#ifdef SKR_LOG_SIO
       log_event("Ping received, send pong");
+#endif
       payload = "3" + payload;
       websocket_->Send(payload);
     }
       break;
     case 3: {
+#ifdef SKR_LOG_SIO
       log_event("Pong received");
+#endif
       if (payload == "probe") {
         log_event("Request Update");
         websocket_->Send("5");
@@ -253,7 +277,9 @@ void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) 
     case 4: {
       const char second_char = payload.at(0);
       int control2 = atoi(&second_char);
+#ifdef SKR_LOG_SIO
       log_event("Message code: [%d]", control2);
+#endif
       
       unique_ptr<SIOPacket> packet = SIOPacket::SIOPacketWithType(SIOPacket::Type::EVENT);
       string endpoint = "";
@@ -291,7 +317,9 @@ void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) 
       
       switch (control2) {
         case 0: {
+#ifdef SKR_LOG_SIO
           log_event("Socket connected");
+#endif
           if (client) {
             client->OnConnect();
             client->FireEvent("connect", payload);
@@ -299,23 +327,28 @@ void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) 
         }
           break;
         case 1: {
+#ifdef SKR_LOG_SIO
           log_event("Socket disconnected");
+#endif
           DisconnectFromEndpoint(endpoint);
           client->FireEvent("disconnect", payload);
         }
           break;
         case 2: {
+#ifdef SKR_LOG_SIO
           log_event("Event received");
+#endif
           std::string::size_type payload_first_slash_pos = payload.find("\"");
           std::string::size_type payload_second_slash_pos = payload.substr(payload_first_slash_pos + 1).find("\"");
           
           std::string eventname = payload.substr(payload_first_slash_pos + 1,
                                                  payload_second_slash_pos - payload_first_slash_pos + 1);
-          
+#ifdef SKR_LOG_SIO
           log_event("event name %s between %i and %i",
                     eventname.c_str(),
                     payload_first_slash_pos,
                     payload_second_slash_pos);
+#endif
           
           payload = payload.substr(payload_second_slash_pos + 4,
                                    payload.size() - (payload_second_slash_pos + 5));
@@ -327,17 +360,25 @@ void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) 
         }
           break;
         case 3:
+#ifdef SKR_LOG_SIO
           log_event("Message ACK");
+#endif
           break;
         case 4:
+#ifdef SKR_LOG_SIO
           log_event("Error");
+#endif
           client->FireEvent("error", payload);
           break;
         case 5:
+#ifdef SKR_LOG_SIO
           log_event("Binary event");
+#endif
           break;
         case 6:
+#ifdef SKR_LOG_SIO
           log_event("Binary ACK");
+#endif
           break;
         default:
           break;
@@ -345,11 +386,15 @@ void SIOClientImpl::OnMessage(const Websocket *ws, const Websocket::Data& data) 
     }
       break;
     case 5: {
+#ifdef SKR_LOG_SIO
       log_event("Upgrade required");
+#endif
       break;
     }
     case 6: {
+#ifdef SKR_LOG_SIO
       log_event("Noop");
+#endif
       break;
     }
     default:
@@ -392,7 +437,9 @@ void SIOClientImpl::QuitHeartbeatThread() {
 
 void SIOClientImpl::Heartbeat() {
   while (!need_quit_heartbeat_thread_) {
+#ifdef SKR_LOG_SIO
     log_event("SIOClientImpl::Heartbeat send ping");
+#endif
     
     // send packet
     unique_ptr<SIOPacket> packet = SIOPacket::SIOPacketWithFrameType(SIOPacket::FrameType::PING);

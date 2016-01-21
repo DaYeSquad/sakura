@@ -95,7 +95,9 @@ SIOClient* SocketIO::Connect(const std::string& uri,
       socket->AddClient(path, connection);
       socket->ConnectToEndpoint(path);
     } else {
+#ifdef SKR_LOG_SIO
       log_event("SocketIO disconnect from previous client");
+#endif
       
       connection->Disconnect();
       
