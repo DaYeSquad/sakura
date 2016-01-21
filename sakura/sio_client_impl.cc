@@ -38,7 +38,7 @@ void SIOClientImpl::Handshake(const std::map<std::string, std::string>& user_hea
   if (use_ssl_) {
     ss << "https://";
   } else {
-    ss << "http//";
+    ss << "http://";
   }
   ss << uri_ << "/socket.io/1/?EIO=2&transport=polling&b64=true";
   

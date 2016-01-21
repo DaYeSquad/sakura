@@ -14,16 +14,34 @@
 		7D628E781C27DA7600CBC088 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D628E761C27DA7600CBC088 /* Main.storyboard */; };
 		7D628E7A1C27DA7600CBC088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D628E791C27DA7600CBC088 /* Assets.xcassets */; };
 		7D628E7D1C27DA7600CBC088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D628E7B1C27DA7600CBC088 /* LaunchScreen.storyboard */; };
-		7D628E931C27E5F200CBC088 /* sakura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D628E8A1C27DAA000CBC088 /* sakura.framework */; };
+		7D9072D31C508B40008185C5 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9072D21C508B40008185C5 /* libcurl.a */; };
+		7D9072D61C508B4F008185C5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9072D41C508B4F008185C5 /* libcrypto.a */; };
+		7D9072D71C508B4F008185C5 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9072D51C508B4F008185C5 /* libssl.a */; };
+		7D9072D91C508B56008185C5 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9072D81C508B56008185C5 /* libwebsockets.a */; };
+		7D9073001C5093A2008185C5 /* libsakura.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9072FD1C509399008185C5 /* libsakura.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7D628E891C27DAA000CBC088 /* PBXContainerItemProxy */ = {
+		7D9072FA1C509399008185C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7D628E851C27DAA000CBC088 /* sakura.xcodeproj */;
+			containerPortal = 7D9072F41C509399008185C5 /* sakura.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7D628D731C27D11600CBC088;
-			remoteInfo = sakura;
+			remoteInfo = "sakura-ios";
+		};
+		7D9072FC1C509399008185C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D9072F41C509399008185C5 /* sakura.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7D3649151C2D1746002BD79E;
+			remoteInfo = "libsakura-ios";
+		};
+		7D9072FE1C509399008185C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D9072F41C509399008185C5 /* sakura.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DE007531C30D75000A3FB76;
+			remoteInfo = "sakura-cocoa";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,7 +58,12 @@
 		7D628E791C27DA7600CBC088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D628E7C1C27DA7600CBC088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D628E7E1C27DA7600CBC088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D628E851C27DAA000CBC088 /* sakura.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sakura.xcodeproj; path = ../../proj.ios/sakura.xcodeproj; sourceTree = "<group>"; };
+		7D9072D21C508B40008185C5 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../external/curl/prebuilt/iOS/libcurl.a; sourceTree = "<group>"; };
+		7D9072D41C508B4F008185C5 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../external/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
+		7D9072D51C508B4F008185C5 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../external/openssl/lib/libssl.a; sourceTree = "<group>"; };
+		7D9072D81C508B56008185C5 /* libwebsockets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebsockets.a; path = ../../external/websockets/prebuilt/ios/libwebsockets.a; sourceTree = "<group>"; };
+		7D9072DA1C508BA9008185C5 /* ios-test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "ios-test.xcconfig"; path = "TestSocketIO/ios-test.xcconfig"; sourceTree = "<group>"; };
+		7D9072F41C509399008185C5 /* sakura.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sakura.xcodeproj; path = ../../proj.cocoa/sakura.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D628E931C27E5F200CBC088 /* sakura.framework in Frameworks */,
+				7D9073001C5093A2008185C5 /* libsakura.a in Frameworks */,
+				7D9072D71C508B4F008185C5 /* libssl.a in Frameworks */,
+				7D9072D91C508B56008185C5 /* libwebsockets.a in Frameworks */,
+				7D9072D31C508B40008185C5 /* libcurl.a in Frameworks */,
+				7D9072D61C508B4F008185C5 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +85,7 @@
 		7D628E611C27DA7600CBC088 = {
 			isa = PBXGroup;
 			children = (
+				7D9072DA1C508BA9008185C5 /* ios-test.xcconfig */,
 				7D628E6C1C27DA7600CBC088 /* TestSocketIO */,
 				7D628E841C27DA7C00CBC088 /* sakura */,
 				7D628E6B1C27DA7600CBC088 /* Products */,
@@ -101,15 +129,21 @@
 		7D628E841C27DA7C00CBC088 /* sakura */ = {
 			isa = PBXGroup;
 			children = (
-				7D628E851C27DAA000CBC088 /* sakura.xcodeproj */,
+				7D9072F41C509399008185C5 /* sakura.xcodeproj */,
+				7D9072D21C508B40008185C5 /* libcurl.a */,
+				7D9072D41C508B4F008185C5 /* libcrypto.a */,
+				7D9072D51C508B4F008185C5 /* libssl.a */,
+				7D9072D81C508B56008185C5 /* libwebsockets.a */,
 			);
 			name = sakura;
 			sourceTree = "<group>";
 		};
-		7D628E861C27DAA000CBC088 /* Products */ = {
+		7D9072F51C509399008185C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7D628E8A1C27DAA000CBC088 /* sakura.framework */,
+				7D9072FB1C509399008185C5 /* sakura-ios.framework */,
+				7D9072FD1C509399008185C5 /* libsakura.a */,
+				7D9072FF1C509399008185C5 /* sakura.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,8 +195,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 7D628E861C27DAA000CBC088 /* Products */;
-					ProjectRef = 7D628E851C27DAA000CBC088 /* sakura.xcodeproj */;
+					ProductGroup = 7D9072F51C509399008185C5 /* Products */;
+					ProjectRef = 7D9072F41C509399008185C5 /* sakura.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -173,11 +207,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		7D628E8A1C27DAA000CBC088 /* sakura.framework */ = {
+		7D9072FB1C509399008185C5 /* sakura-ios.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "sakura-ios.framework";
+			remoteRef = 7D9072FA1C509399008185C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7D9072FD1C509399008185C5 /* libsakura.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsakura.a;
+			remoteRef = 7D9072FC1C509399008185C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7D9072FF1C509399008185C5 /* sakura.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = sakura.framework;
-			remoteRef = 7D628E891C27DAA000CBC088 /* PBXContainerItemProxy */;
+			remoteRef = 7D9072FE1C509399008185C5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -311,6 +359,7 @@
 		};
 		7D628E821C27DA7600CBC088 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D9072DA1C508BA9008185C5 /* ios-test.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
@@ -323,6 +372,7 @@
 		};
 		7D628E831C27DA7600CBC088 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D9072DA1C508BA9008185C5 /* ios-test.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;

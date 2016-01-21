@@ -27,19 +27,19 @@ namespace worktile {
     // sakura::SocketIO::Delegate --------------------------------------------------------
     
     virtual void OnConnect(sakura::SIOClient* client) {
-      sakura::log_event("FeedMessageManager OnConnect fired");
+      printf("FeedMessageManager OnConnect fire\n");
     }
     
     virtual void OnMessage(sakura::SIOClient* client, const std::string& data) {
-      sakura::log_event("FeedMessageManager OnMessage %s", data.c_str());
+      printf("FeedMessageManager OnMessage %s\n", data.c_str());
     }
     
     virtual void OnClose(sakura::SIOClient* client) {
-      sakura::log_event("FeedMessageManager socket close");
+      printf("FeedMessageManager socket close\n");
     }
     
     virtual void OnError(sakura::SIOClient* client, const std::string& data) {
-      sakura::log_event("FeedMessageManager error happens %s", data.c_str());
+      printf("FeedMessageManager error happens %s\n", data.c_str());
     }
     
   private:
