@@ -256,7 +256,6 @@ int Websocket::OnSocketCallback(struct libwebsocket_context *ctx,
       ready_state_ = State::OPEN;
       libwebsocket_callback_on_writable(context_, instance_);
       thread_helper_->NotifyWebsocketMessageByType(WebsocketMessage::Type::NOTIFY_OPEN);
-      Send("Hello");
     }
       break;
     case LWS_CALLBACK_CLIENT_WRITEABLE: {
