@@ -1,4 +1,22 @@
-Sakura - YCTech C++ base, used in WorktileCore and LessChatCore (aka "Worktile Pro") (C++ 11)
+#Sakura - YCTech C++ base, used in WorktileCore and LessChatCore (aka "Worktile Pro") (C++ 11)
+
+#Goals:
+
+1. Providing basic prebuilt libraries or source code for YCTech core developers, all in one place:
+
+- curl : HTTP request (prebuilt)
+
+- gtest : Unit test (prebuilt)
+
+- json11: JSON parser
+
+- openssl : SSL (prebuilt)
+
+- websockets : websockets and Socket.IO (prebuilt)
+
+- tinyxml2 : XML parser
+
+- easySQLite : fork from easySQLite with lots of additions
 
 
 # Available options:

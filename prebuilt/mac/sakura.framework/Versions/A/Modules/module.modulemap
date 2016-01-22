@@ -1,6 +1,0 @@
-framework module sakura {
-  umbrella header "sakura.h"
-
-  export *
-  module * { export * }
-}

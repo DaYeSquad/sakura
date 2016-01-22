@@ -1,0 +1,15 @@
+//
+//  ios-test.xcconfig
+//  TestSocketIO
+//
+//  Created by Frank Lin on 1/21/16.
+//  Copyright © 2016 Frank Lin. All rights reserved.
+//
+
+IPHONEOS_DEPLOYMENT_TARGET = 8.0
+
+OTHER_LDFLAGS = -lz -lcurl -lwebsockets -lcrypto -lssl -lsakura
+
+HEADER_SEARCH_PATHS = ../../
+
+LIBRARY_SEARCH_PATHS = ../../external/openssl/lib ../../external/curl/prebuilt/iOS ../../external/websockets/prebuilt/ios ../../prebuilt/ios
