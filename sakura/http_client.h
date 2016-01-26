@@ -14,6 +14,7 @@
 #include <memory>
 #include <map>
 #include <string>
+#include <mutex>
 
 #include "sakura/macros.h"
 
@@ -39,7 +40,8 @@ public:
             std::function<void(std::unique_ptr<HttpResponse>)> callback);
   
 private:
-  std::vector<std::unique_ptr<HttpResponse>> response_queue_;
+  std::vector<std::unique_ptr<HttpRequest>> request_queue_;
+  std::mutex reqeust_queue_mutex_;
   
   void ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
                           std::function<void(std::unique_ptr<HttpResponse>)> callback);

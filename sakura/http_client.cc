@@ -276,7 +276,7 @@ void HttpClient::Send(std::unique_ptr<HttpRequest> request,
 }
 
 void HttpClient::ProcessHttpRequestWin32(HttpRequest* request,
-	std::function<void(std::unique_ptr<HttpResponse>)> callback) {
+                                         std::function<void(std::unique_ptr<HttpResponse>)> callback) {
 	ProcessHttpRequest(std::unique_ptr<HttpRequest>(request), callback);
 }
 
