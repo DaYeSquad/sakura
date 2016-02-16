@@ -264,15 +264,44 @@ void HttpClient::Send(std::unique_ptr<HttpRequest> request,
 	// since win32 std::thread cannot copy request, use raw pointer and make it as unique_ptr in callback instead.
 	auto func = std::bind(&HttpClient::ProcessHttpRequestWin32, this, std::placeholders::_1, std::placeholders::_2);
 
+  std::string identifier_tag = request->IdentifierTag();
+  request->set_tag(identifier_tag);
+  
+  std::lock_guard<std::mutex> lg(request_queue_mutex_);
+  request_tag_queue_.push_back(identifier_tag);
+  
 	std::thread thread(func, request.release(), callback);
 	thread.detach();
 #else
   std::function<void(std::unique_ptr<HttpRequest>, std::function<void(std::unique_ptr<HttpResponse>)>)> func =
 		std::bind(&HttpClient::ProcessHttpRequest, this, std::placeholders::_1, std::placeholders::_2);
   
+  std::string identifier_tag = request->IdentifierTag();
+  request->set_tag(identifier_tag);
+  
+  std::lock_guard<std::mutex> lg(request_queue_mutex_);
+  request_tag_queue_.push_back(identifier_tag);
+  
   std::thread thread(func, std::move(request), callback);
   thread.detach();
 #endif
+}
+
+void HttpClient::CancelAllRequests() {
+  std::lock_guard<std::mutex> lg(request_queue_mutex_);
+  request_tag_queue_.clear();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// HttpClient, private:
+
+bool HttpClient::IsCancelledRequest(const std::string& tag) const {
+  for (auto it = request_tag_queue_.begin(); it != request_tag_queue_.end(); ++it) {
+    if (tag == *it) {
+      return false;
+    }
+  }
+  return true;
 }
 
 void HttpClient::ProcessHttpRequestWin32(HttpRequest* request,
@@ -284,6 +313,11 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
                                     std::function<void(std::unique_ptr<HttpResponse>)> callback) {
 	log_event("Request URL is %s, method %d", request->url().c_str(), request->request_type());
 
+  // request has already been cancelled
+  if (IsCancelledRequest(request->tag())) {
+    return;
+  }
+  
   std::vector<char> response_data;
   std::vector<char> response_header;
   int64_t response_code = -1;
@@ -329,6 +363,12 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
     log_error("HttpClient: Unsupported HTTP method");
   }
 
+  // request has already been cancelled
+  if (IsCancelledRequest(request->tag())) {
+    log_event("HttpClient: request %s has been cancelled", request->url().c_str());
+    return;
+  }
+  
   //setup response
   std::unique_ptr<HttpResponse> http_response(new HttpResponse(std::move(request)));
   http_response->set_response_code(response_code);

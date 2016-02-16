@@ -39,9 +39,11 @@ public:
   void Send(std::unique_ptr<HttpRequest> request,
             std::function<void(std::unique_ptr<HttpResponse>)> callback);
   
+  void CancelAllRequests();
+  
 private:
-  std::vector<std::unique_ptr<HttpRequest>> request_queue_;
-  std::mutex reqeust_queue_mutex_;
+  std::vector<std::string> request_tag_queue_;
+  std::mutex request_queue_mutex_;
   
   void ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
                           std::function<void(std::unique_ptr<HttpResponse>)> callback);
@@ -53,6 +55,8 @@ private:
   // platform spec
   void HandleHttpResponseCallback(std::unique_ptr<HttpResponse> response,
                                   std::function<void(std::unique_ptr<HttpResponse>)> callback);
+  
+  bool IsCancelledRequest(const std::string& tag) const;
   
   
   DISALLOW_COPY_AND_ASSIGN(HttpClient);

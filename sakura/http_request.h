@@ -95,6 +95,9 @@ private:
   std::string tag_;
   std::map<std::string, std::string> request_header_;
   
+  friend class HttpClient;
+  std::string IdentifierTag() const;
+  
   
   DISALLOW_COPY_AND_ASSIGN(HttpRequest);
 };

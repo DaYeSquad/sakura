@@ -37,4 +37,13 @@ void HttpRequest::SetValueForHttpHeaderField(const std::string& key, const std::
 	request_header_[key] = value;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// HTTPRequest, private:
+
+std::string HttpRequest::IdentifierTag() const {
+  time_t now;
+  time(&now);
+  return url_ + std::to_string(now);
+}
+
 NS_SKR_END
