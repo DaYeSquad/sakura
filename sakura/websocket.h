@@ -9,10 +9,16 @@
 #ifndef SAKURA_WEBSOCKET_H_
 #define SAKURA_WEBSOCKET_H_
 
+#include <stdio.h>
+
 #include <string>
 #include <memory>
 
 #include "macros.h"
+
+#if SKR_PLATFORM == SKR_PLATFORM_WIN32
+#include "sakura/win32/compact/sakura_stdc.h"
+#endif
 
 struct libwebsocket;
 struct libwebsocket_context;

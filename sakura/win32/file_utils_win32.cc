@@ -8,12 +8,10 @@
 
 #include "file_utils_win32.h"
 
-#include <ShlObj.h>
-
-#include "utils/log.h"
+#include "sakura/log.h"
 
 using std::string;
-USING_NS_LCC;
+USING_NS_SKR;
 
 ////////////////////////////////////////////////////////////////////////////////
 // FileUtilsiOS, public:
@@ -46,17 +44,6 @@ bool FileUtilsWin32::IsFileExist(const string &file_path) {
 	return true;
 }
 
-const char* FileUtilsWin32::PreferredDocumentPath() {
-	log_error("LessChat core doesn't implement this method");
+std::string FileUtilsWin32::GetWritablePath() {
 	return "";
-}
-
-const char* FileUtilsWin32::PreferredCachePath() {
-	log_error("LessChat core doesn't implement this method");
-	return "";
-}
-
-bool FileUtilsWin32::CreateFolderAtPath(const char* path) {
-	log_error("LessChat core doesn't implement this method");
-	return false;
 }

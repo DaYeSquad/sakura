@@ -8,6 +8,8 @@
 
 #include "sakura/http_request.h"
 
+#include <time.h>
+
 using std::unique_ptr;
 
 NS_SKR_BEGIN

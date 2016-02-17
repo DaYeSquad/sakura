@@ -6,31 +6,27 @@
 //  Copyright (c) 2013年 Frank Lin. All rights reserved.
 //
 
-#ifndef LESSCHATCORE_CORE_UTILS_IOS_FILE_UTILS_WIN32_H_
-#define LESSCHATCORE_CORE_UTILS_IOS_FILE_UTILS_WIN32_H_
+#ifndef SAKURA_WIN32_FILE_UTILS_WIN32_H_
+#define SAKURA_WIN32_FILE_UTILS_WIN32_H_
 
 #include <iostream>
 
-#include "base/base.h"
-#include "utils/file_utils.h"
+#include "sakura/macros.h"
+#include "sakura/file_utils.h"
 
-NS_LCC_BEGIN
+NS_SKR_BEGIN
 
-class FileUtilsWin32 : public lesschat::FileUtils{
+class FileUtilsWin32 : public FileUtils{
   
 public:
   
   // Utilities (overrides) --------------------------------------------------------
 
-  virtual bool IsFileExist(const std::string& file_path) OVERRIDE;
+	virtual std::string GetWritablePath() OVERRIDE;
 
-  virtual const char* PreferredDocumentPath() OVERRIDE;
-
-	virtual const char* PreferredCachePath() OVERRIDE;
-  
-  virtual bool CreateFolderAtPath(const char* path) OVERRIDE;
+  virtual bool IsFileExist(const std::string& path) OVERRIDE;
 };
 
-NS_LCC_END
+NS_SKR_END
 
-#endif /* defined(LESSCHATCORE_CORE_UTILS_IOS_FILE_UTILS_WIN32_H_) */
+#endif /* defined(SAKURA_WIN32_FILE_UTILS_WIN32_H_) */

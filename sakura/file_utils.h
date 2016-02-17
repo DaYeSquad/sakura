@@ -11,6 +11,16 @@
 
 #include "sakura/macros.h"
 
+#if SKR_PLATFORM == SKR_PLATFORM_WIN32
+#ifdef CreateDirectory
+#undef CreateDirectory
+#endif
+
+#ifdef RemoveDirectory
+#undef RemoveDirectory
+#endif
+#endif
+
 NS_SKR_BEGIN
 
 /// Singleton file utils.

@@ -311,7 +311,7 @@ void HttpClient::ProcessHttpRequestWin32(HttpRequest* request,
 
 void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
                                     std::function<void(std::unique_ptr<HttpResponse>)> callback) {
-	log_event("Request URL is %s, method %d", request->url().c_str(), request->request_type());
+	//sakura::log_event("Request URL is %s, method %d", request->url().c_str(), request->request_type());
 
   // request has already been cancelled
   if (IsCancelledRequest(request->tag())) {
@@ -360,7 +360,7 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
     && curl.SetOptionOrDie(CURLOPT_FOLLOWLOCATION, true)
     && curl.PerformOrDie(&response_code);
   } else {
-    log_error("HttpClient: Unsupported HTTP method");
+    //log_error("HttpClient: Unsupported HTTP method");
   }
 
   // request has already been cancelled
@@ -380,17 +380,17 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
     http_response->set_response_data(response_data);
 
 #ifdef SKR_HTTP_TRACE_HEADER
-    log("HTTP response http header is : %s", response_header_string.c_str());
+    log_event("HTTP response http header is : %s", response_header_string.c_str());
 #endif
 
 #ifdef SKR_HTTP_TRACE_RESPONSE
-    log("HTTP response body is : %s", response_data_string.c_str());
+    log_event("HTTP response body is : %s", response_data_string.c_str());
 #endif
 
   }
 #ifdef SKR_HTTP_TRACE_HEADER
   else {
-    log("HTTP response error is : %s", error_buffer);
+    log_event("HTTP response error is : %s", error_buffer);
   }
 #endif
 

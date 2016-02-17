@@ -1,4 +1,4 @@
-//
+﻿//
 //  http_response.cpp
 //  lesschatcore-ios
 //

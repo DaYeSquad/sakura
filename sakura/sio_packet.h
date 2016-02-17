@@ -15,6 +15,10 @@
 
 #include "macros.h"
 
+#if SKR_PLATFORM == SKR_PLATFORM_WIN32
+#undef ERROR
+#endif
+
 NS_SKR_BEGIN
 
 /// Socket.IO packet version is 1.x

@@ -21,7 +21,7 @@
 NS_SKR_BEGIN
 
 /// Used for multipart request to PUT or POST.
-class HttpMultipartRequest: public sakura::HttpRequest {
+class SKR_DLL HttpMultipartRequest: public sakura::HttpRequest {
 public:
   
   // Creation and lifetime --------------------------------------------------------

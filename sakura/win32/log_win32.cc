@@ -7,6 +7,8 @@
 //
 //
 
+#include "sakura/log.h"
+
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -14,18 +16,12 @@
 #include <Shlwapi.h>
 #include <tchar.h>
 
-#ifdef _DEBUG
-#include <debugapi.h>
-#endif
-
-#include "utils/log.h"
-
 static const int MAX_LOG_LENGTH = 16 * 1024;
 
-NS_LCC_BEGIN
+NS_SKR_BEGIN
 
-void log(const char*format, ... ) {
-#ifdef LCC_LOG
+void log_event(const char*format, ... ) {
+#if SKR_LOG_LEVEL == SKR_LOG_LEVEL_ALL
 	va_list args;
 	va_start(args, format);
 	char buf[MAX_LOG_LENGTH];
@@ -44,8 +40,8 @@ void log(const char*format, ... ) {
 }
 
 void log_warning(const char*format, ... ) {
-#ifdef LCC_LOG
-    printf("LessChat Warning : ");
+#if SKR_LOG_LEVEL <= SKR_LOG_LEVEL_WARNING
+    printf("Warning : ");
     char buf[kMaxLogLen+1] = {0};
     va_list ap;
     va_start(ap, format);
@@ -57,8 +53,8 @@ void log_warning(const char*format, ... ) {
 }
 
 void log_error(const char*format, ... ) {
-#ifdef LCC_LOG
-    printf("LessChat Error : ");
+#if SKR_LOG_LEVEL <= SKR_LOG_LEVEL_ERROR
+    printf("Error : ");
     char buf[kMaxLogLen+1] = {0};
     va_list ap;
     va_start(ap, format);
@@ -69,4 +65,4 @@ void log_error(const char*format, ... ) {
 #endif
 }
 
-NS_LCC_END
+NS_SKR_END

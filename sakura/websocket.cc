@@ -13,11 +13,16 @@
 #include <thread>
 #include <list>
 #include <mutex>
+#include <algorithm>
 
 #include "libwebsockets.h"
 
 #include "sakura/log.h"
 #include "sakura/websocket_thread_helper.h"
+
+#if SKR_PLATFORM == SKR_PLATFORM_WIN32
+#undef min
+#endif
 
 using std::string;
 using std::unique_ptr;
