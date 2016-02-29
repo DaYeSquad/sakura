@@ -58,6 +58,9 @@ private:
   
   bool IsCancelledRequest(const std::string& tag) const;
   
+  // Returns false if not found such tag
+  bool RemoveRequestTag(const std::string& tag);
+  
   
   DISALLOW_COPY_AND_ASSIGN(HttpClient);
 };

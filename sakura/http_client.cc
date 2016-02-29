@@ -304,6 +304,16 @@ bool HttpClient::IsCancelledRequest(const std::string& tag) const {
   return true;
 }
 
+bool HttpClient::RemoveRequestTag(const std::string& tag) {
+  for (auto it = request_tag_queue_.begin(); it != request_tag_queue_.end(); ++it) {
+    if (tag == *it) {
+      request_tag_queue_.erase(it);
+      return true;
+    }
+  }
+  return false;
+}
+
 void HttpClient::ProcessHttpRequestWin32(HttpRequest* request,
                                          std::function<void(std::unique_ptr<HttpResponse>)> callback) {
 	ProcessHttpRequest(std::unique_ptr<HttpRequest>(request), callback);
@@ -364,7 +374,11 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
   }
 
   // request has already been cancelled
-  if (IsCancelledRequest(request->tag())) {
+//  if (IsCancelledRequest(request->tag())) {
+//    log_event("HttpClient: request %s has been cancelled", request->url().c_str());
+//    return;
+//  }
+  if (!RemoveRequestTag(request->tag())) {
     log_event("HttpClient: request %s has been cancelled", request->url().c_str());
     return;
   }
