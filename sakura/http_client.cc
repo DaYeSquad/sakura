@@ -305,6 +305,7 @@ bool HttpClient::IsCancelledRequest(const std::string& tag) const {
 }
 
 bool HttpClient::RemoveRequestTag(const std::string& tag) {
+  std::lock_guard<std::mutex> lg(request_queue_mutex_);
   for (auto it = request_tag_queue_.begin(); it != request_tag_queue_.end(); ++it) {
     if (tag == *it) {
       request_tag_queue_.erase(it);
