@@ -295,6 +295,11 @@ void HttpClient::CancelAllRequests() {
 ////////////////////////////////////////////////////////////////////////////////
 // HttpClient, private:
 
+void HttpClient::HandleHttpResponseCallback(std::unique_ptr<HttpResponse> response,
+                                            std::function<void(std::unique_ptr<HttpResponse>)> callback) {
+  callback(std::move(response));
+}
+
 bool HttpClient::IsCancelledRequest(const std::string& tag) const {
   for (auto it = request_tag_queue_.begin(); it != request_tag_queue_.end(); ++it) {
     if (tag == *it) {

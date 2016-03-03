@@ -46,7 +46,6 @@
 		7D3649351C2D181B002BD79E /* websocket_thread_helper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AE91C2BD3FF00425A60 /* websocket_thread_helper.cc */; };
 		7D3649361C2D1821002BD79E /* websocket.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AEB1C2BD3FF00425A60 /* websocket.cc */; };
 		7D3649371C2D1823002BD79E /* file_utils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */; };
-		7D3649381C2D1825002BD79E /* http_client_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */; };
 		7D3649391C2D1826002BD79E /* log_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */; };
 		7D36493A1C2D1827002BD79E /* websocket_thread_helper_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */; };
 		7D6197DB1C293F3200C42B19 /* json11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6197D91C293F3200C42B19 /* json11.cpp */; };
@@ -84,12 +83,10 @@
 		7DBC2B071C2BD3FF00425A60 /* websocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2AEC1C2BD3FF00425A60 /* websocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DBC2B0E1C2BD40600425A60 /* file_utils_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBC2B091C2BD40600425A60 /* file_utils_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DBC2B0F1C2BD40600425A60 /* file_utils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */; };
-		7DBC2B101C2BD40600425A60 /* http_client_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */; };
 		7DBC2B111C2BD40600425A60 /* log_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */; };
 		7DBC2B121C2BD40600425A60 /* websocket_thread_helper_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */; };
 		7DC00B731C2A5F16002A6099 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC00B721C2A5F16002A6099 /* libwebsockets.a */; };
 		7DE0075B1C30D78100A3FB76 /* file_utils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */; };
-		7DE0075C1C30D78600A3FB76 /* http_client_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */; };
 		7DE0075D1C30D78800A3FB76 /* log_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */; };
 		7DE0075E1C30D78A00A3FB76 /* websocket_thread_helper_cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */; };
 		7DE0075F1C30D79000A3FB76 /* file_utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7DBC2AD21C2BD3FF00425A60 /* file_utils.cc */; };
@@ -196,7 +193,6 @@
 		7DBC2AEC1C2BD3FF00425A60 /* websocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = websocket.h; path = ../sakura/websocket.h; sourceTree = "<group>"; };
 		7DBC2B091C2BD40600425A60 /* file_utils_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_utils_ios.h; sourceTree = "<group>"; };
 		7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = file_utils_ios.mm; sourceTree = "<group>"; };
-		7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = http_client_cocoa.mm; sourceTree = "<group>"; };
 		7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = log_cocoa.mm; sourceTree = "<group>"; };
 		7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = websocket_thread_helper_cocoa.mm; sourceTree = "<group>"; };
 		7DC00B721C2A5F16002A6099 /* libwebsockets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebsockets.a; path = ../../external/websockets/prebuilt/ios/libwebsockets.a; sourceTree = "<group>"; };
@@ -352,7 +348,6 @@
 			children = (
 				7DBC2B0A1C2BD40600425A60 /* file_utils_ios.mm */,
 				7DBC2B091C2BD40600425A60 /* file_utils_ios.h */,
-				7DBC2B0B1C2BD40600425A60 /* http_client_cocoa.mm */,
 				7DBC2B0C1C2BD40600425A60 /* log_cocoa.mm */,
 				7DBC2B0D1C2BD40600425A60 /* websocket_thread_helper_cocoa.mm */,
 			);
@@ -588,7 +583,6 @@
 			files = (
 				7D36492C1C2D17FD002BD79E /* file_utils.cc in Sources */,
 				7D3649371C2D1823002BD79E /* file_utils_ios.mm in Sources */,
-				7D3649381C2D1825002BD79E /* http_client_cocoa.mm in Sources */,
 				7D3649391C2D1826002BD79E /* log_cocoa.mm in Sources */,
 				7D36493A1C2D1827002BD79E /* websocket_thread_helper_cocoa.mm in Sources */,
 				7D36492D1C2D17FF002BD79E /* http_client.cc in Sources */,
@@ -619,7 +613,6 @@
 				7DBC2AFA1C2BD3FF00425A60 /* sio_client_impl.cc in Sources */,
 				7DBC2B001C2BD3FF00425A60 /* socket_io.cc in Sources */,
 				7DBC2AFE1C2BD3FF00425A60 /* sio_packet.cc in Sources */,
-				7DBC2B101C2BD40600425A60 /* http_client_cocoa.mm in Sources */,
 				7DBC2B041C2BD3FF00425A60 /* websocket_thread_helper.cc in Sources */,
 				7DBC2AF31C2BD3FF00425A60 /* http_request.cc in Sources */,
 				7DBC2AED1C2BD3FF00425A60 /* file_utils.cc in Sources */,
@@ -635,7 +628,6 @@
 				7DE007641C30D79C00A3FB76 /* sio_client_impl.cc in Sources */,
 				7DE007601C30D79300A3FB76 /* http_client.cc in Sources */,
 				7DE007691C30D7A700A3FB76 /* websocket.cc in Sources */,
-				7DE0075C1C30D78600A3FB76 /* http_client_cocoa.mm in Sources */,
 				7DE007661C30D7A000A3FB76 /* sio_packet.cc in Sources */,
 				7DE007631C30D79A00A3FB76 /* http_response.cc in Sources */,
 				7DE0075D1C30D78800A3FB76 /* log_cocoa.mm in Sources */,
