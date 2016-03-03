@@ -327,7 +327,9 @@ void HttpClient::ProcessHttpRequestWin32(HttpRequest* request,
 
 void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
                                     std::function<void(std::unique_ptr<HttpResponse>)> callback) {
-	//sakura::log_event("Request URL is %s, method %d", request->url().c_str(), request->request_type());
+  sakura::log_event("Request URL is %s, method %s",
+                    request->url().c_str(),
+                    HttpRequest::StringFromHttpRequestType(request->request_type()).c_str());
 
   // request has already been cancelled
   if (IsCancelledRequest(request->tag())) {
