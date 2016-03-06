@@ -381,11 +381,7 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
     //log_error("HttpClient: Unsupported HTTP method");
   }
 
-  // request has already been cancelled
-//  if (IsCancelledRequest(request->tag())) {
-//    log_event("HttpClient: request %s has been cancelled", request->url().c_str());
-//    return;
-//  }
+  // check request has already been cancelled, if not , remove the tag from array.
   if (!RemoveRequestTag(request->tag())) {
     log_event("HttpClient: request %s has been cancelled", request->url().c_str());
     return;
