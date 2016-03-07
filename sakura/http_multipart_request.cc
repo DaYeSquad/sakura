@@ -47,11 +47,11 @@ void HttpMultipartRequest::AddPart(const std::string& name, const std::string& v
 
 void HttpMultipartRequest::AddFileBody(const std::string& name,
                                        const std::string& file_name,
-                                       const std::string& file_type,
+                                       const std::string& mime_type,
                                        const std::vector<char>& file_data) {
   string part = "--" + kboundary + "\r\n";
   part += "Content-Disposition: form-data; name=\"" + name + "\"; filename=\"" + file_name + kEscapeQuote + "\r\n";
-  part += "Content-Type: " + file_type + "\r\n\r\n";
+  part += "Content-Type: " + mime_type + "\r\n\r\n";
   
   // add to raw data
   vector<char>::iterator it = raw_data_.begin();

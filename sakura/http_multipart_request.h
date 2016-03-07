@@ -38,7 +38,7 @@ public:
   // adds binary file body
   void AddFileBody(const std::string& name,
                    const std::string& file_name,
-                   const std::string& file_type,
+                   const std::string& mime_type,
                    const std::vector<char>& file_data);
   
   // Getter --------------------------------------------------------
