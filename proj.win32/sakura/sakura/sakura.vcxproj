@@ -156,16 +156,8 @@
     <ClCompile Include="..\..\..\sakura\http_multipart_request.cc" />
     <ClCompile Include="..\..\..\sakura\http_request.cc" />
     <ClCompile Include="..\..\..\sakura\http_response.cc" />
-    <ClCompile Include="..\..\..\sakura\sio_client.cc" />
-    <ClCompile Include="..\..\..\sakura\sio_client_impl.cc" />
-    <ClCompile Include="..\..\..\sakura\sio_packet.cc" />
-    <ClCompile Include="..\..\..\sakura\socket_io.cc" />
-    <ClCompile Include="..\..\..\sakura\websocket.cc" />
-    <ClCompile Include="..\..\..\sakura\websocket_thread_helper.cc" />
     <ClCompile Include="..\..\..\sakura\win32\file_utils_win32.cc" />
-    <ClCompile Include="..\..\..\sakura\win32\http_client_win32.cc" />
     <ClCompile Include="..\..\..\sakura\win32\log_win32.cc" />
-    <ClCompile Include="..\..\..\sakura\win32\websocket_thread_helper_win32.cc" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,14 +170,8 @@
     <ClInclude Include="..\..\..\sakura\log.h" />
     <ClInclude Include="..\..\..\sakura\macros.h" />
     <ClInclude Include="..\..\..\sakura\sakura.h" />
-    <ClInclude Include="..\..\..\sakura\sio_client.h" />
-    <ClInclude Include="..\..\..\sakura\sio_client_impl.h" />
-    <ClInclude Include="..\..\..\sakura\sio_packet.h" />
-    <ClInclude Include="..\..\..\sakura\socket_io.h" />
     <ClInclude Include="..\..\..\sakura\string_utils.h" />
     <ClInclude Include="..\..\..\sakura\url_utils-inl.h" />
-    <ClInclude Include="..\..\..\sakura\websocket.h" />
-    <ClInclude Include="..\..\..\sakura\websocket_thread_helper.h" />
     <ClInclude Include="..\..\..\sakura\win32\compact\dirent.h" />
     <ClInclude Include="..\..\..\sakura\win32\compact\sakura_stdc.h" />
     <ClInclude Include="..\..\..\sakura\win32\file_utils_win32.h" />
