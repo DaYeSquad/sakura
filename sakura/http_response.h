@@ -55,6 +55,8 @@ public:
   std::map<std::string, std::string> response_header() const { return response_header_;  }
   
 protected:
+  friend class HttpClient;
+  
   std::unique_ptr<HttpRequest> http_request_;
   bool succeed_;
   std::vector<char> response_data_;

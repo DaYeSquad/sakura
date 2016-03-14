@@ -7,6 +7,8 @@
 //
 #include "http_client.h"
 
+#include <iostream>
+
 #if SKR_PLATFORM == SKR_PLATFORM_IOS || SKR_PLATFORM == SKR_PLATFORM_ANDROID
 #include "curl.h"
 #include "easy.h"
@@ -28,6 +30,7 @@
 #endif
 
 #include "sakura/log.h"
+#include "sakura/string_utils.h"
 
 using std::vector;
 using std::unique_ptr;
@@ -396,6 +399,20 @@ void HttpClient::ProcessHttpRequest(std::unique_ptr<HttpRequest> request,
   if (success) {
     std::string response_header_string(response_header.begin(), response_header.end());
     http_response->set_response_data(response_data);
+    
+    std::istringstream resp(response_header_string);
+    std::string header;
+    std::string::size_type index;
+    while (std::getline(resp, header) && header != "\r") {
+      index = header.find(':', 0);
+      if (index != std::string::npos) {
+        std::string key_to_trim = header.substr(0, index);
+        std::string value_to_trim = header.substr(index + 1);
+        std::string key = trim(key_to_trim);
+        std::string value = trim(value_to_trim);
+        http_response->response_header_.insert(std::make_pair(key, value));
+      }
+    }
 
 #ifdef SKR_HTTP_TRACE_HEADER
     log_event("HTTP response http header is : %s", response_header_string.c_str());
