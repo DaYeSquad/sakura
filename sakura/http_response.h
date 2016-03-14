@@ -52,6 +52,8 @@ public:
   int64_t response_code() const { return response_code_; }
   void set_response_code(int64_t code) { response_code_ = code; }
   
+  std::map<std::string, std::string> response_header() const { return response_header_;  }
+  
 protected:
   std::unique_ptr<HttpRequest> http_request_;
   bool succeed_;
