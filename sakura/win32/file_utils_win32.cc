@@ -38,9 +38,11 @@ bool FileUtilsWin32::IsFileExist(const string &file_path) {
 	MultiByteToWideChar(CP_UTF8, 0, file_path.c_str(), -1, utf16_buf, sizeof(utf16_buf) / sizeof(utf16_buf[0]));
 
 	DWORD attr = GetFileAttributesW(utf16_buf);
-	if (attr = INVALID_FILE_ATTRIBUTES || (attr & FILE_ATTRIBUTE_DIRECTORY)) {
+	if (attr == INVALID_FILE_ATTRIBUTES)
 		return false;
-	}
+
+	if (attr & FILE_ATTRIBUTE_DIRECTORY)
+		return false;
 	return true;
 }
 
