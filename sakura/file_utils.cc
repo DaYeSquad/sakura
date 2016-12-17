@@ -20,10 +20,15 @@
 #include <ftw.h>
 #endif
 
+#if (SKR_PLATFORM == SKR_PLATFORM_ANDROID)
+#include <cstdlib>
+#endif
+
 #if (SKR_PLATFORM != SKR_PLATFORM_WIN32)
 #include <sys/types.h>
 #include <errno.h>
 #include <dirent.h>
+
 #endif
 
 #include "sakura/log.h"

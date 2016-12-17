@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.worktile.sakura"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            moduleName "none"
+            abiFilters "armeabi", "x86"
+        }
+        externalNativeBuild {
+            cmake {
+                targets "sakura"
+                abiFilters "armeabi", "x86"
+                arguments "-DANDROID_STL=c++_static"
+                cppFlags "-std=c++11 -frtti -fexceptions"
+                cppFlags "-D__GXX_EXPERIMENTAL_CXX0X__ -D__STDC_CONSTANT_MACROS -DSKR_PLATFORM=SKR_PLATFORM_ANDROID -DLCC_THREAD_SAFE -DHAVE_INTTYPES_H"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            externalNativeBuild {
+                cmake {
+                    targets "sakura"
+                }
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    testCompile 'junit:junit:4.12'
+}

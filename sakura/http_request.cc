@@ -10,6 +10,10 @@
 
 #include <time.h>
 
+#if SKR_PLATFORM == SKR_PLATFORM_ANDROID
+#include "sakura/android/string_utils_android.h"
+#endif
+
 using std::unique_ptr;
 
 NS_SKR_BEGIN

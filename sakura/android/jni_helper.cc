@@ -5,6 +5,7 @@
  *      Author: FrankLin
  */
 
+#include <pthread.h>
 #include "jni_helper.h"
 
 #include "sakura/log.h"

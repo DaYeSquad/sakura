@@ -23,11 +23,11 @@ class FileUtilsAndroid : public FileUtils {
 
   virtual bool IsFileExist(const std::string& filepath) OVERRIDE;
 
-  virtual const char* PreferredDocumentPath() OVERRIDE;
+  virtual const char* PreferredDocumentPath();
 
-  virtual const char* PreferredCachePath() OVERRIDE;
+  virtual const char* PreferredCachePath();
 
-  virtual bool CreateFolderAtPath(const char* path) OVERRIDE;
+  virtual bool CreateFolderAtPath(const char* path);
 
   virtual std::string GetWritablePath() OVERRIDE { return ""; }
 };
