@@ -16,6 +16,7 @@
 #include <memory>
 
 #include "sakura/macros.h"
+#include "sakura/http_proxy_client.h"
 
 #if SKR_PLATFORM == SKR_PLATFORM_WIN32
 #undef DELETE
@@ -24,7 +25,6 @@
 NS_SKR_BEGIN
 
 class SKR_DLL HttpRequest {
-  friend class HttpClient;
   
 public:
   enum Type {
@@ -85,8 +85,9 @@ public:
     }
   }
   
-protected:
+public:
   std::vector<char> raw_data_;
+  std::string IdentifierTag() const;
   
 private:
   Type request_type_;
@@ -94,9 +95,6 @@ private:
   std::string request_data_;
   std::string tag_;
   std::map<std::string, std::string> request_header_;
-  
-  friend class HttpClient;
-  std::string IdentifierTag() const;
   
   
   DISALLOW_COPY_AND_ASSIGN(HttpRequest);

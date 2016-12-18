@@ -47,6 +47,30 @@ static inline std::vector<std::string> string_split(const std::string& s, const 
   return result;
 }
 
+  static inline std::string int_vector_join(const std::vector<int>& v, const std::string& token ) {
+    std::ostringstream result;
+    for (auto i = v.begin(); i != v.end(); i++) {
+      if (i != v.begin()) result << token;
+      result << std::to_string(*i);
+    }
+    return result.str();
+  }
+
+  static inline std::vector<int> int_split(const std::string& s, const std::string& delimiter ) {
+    std::vector<int> result;
+    std::string::size_type from = 0;
+    std::string::size_type to = 0;
+
+    while ( to != std::string::npos ){
+      to = s.find( delimiter, from );
+      if ( from < s.size() && from != to ){
+        result.push_back(  std::stoi(s.substr( from, to - from ).c_str()) );
+      }
+      from = to + delimiter.size();
+    }
+    return result;
+  }
+
 // thanks to http://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring?page=1&tab=votes#tab-top
 // trim from start
 static inline std::string& ltrim(std::string& s) {
