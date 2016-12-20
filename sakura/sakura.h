@@ -22,7 +22,7 @@
 #include "sakura/http_request.h"
 #include "sakura/http_multipart_request.h"
 #include "sakura/http_response.h"
-#include "sakura/http_client_impl.h"
+#include "sakura/http_client.h"
 
 #if SKR_PLATFORM != SKR_PLATFORM_WIN32
 #include "sakura/websocket.h"

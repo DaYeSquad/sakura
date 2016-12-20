@@ -12,7 +12,7 @@
 
 #include "log.h"
 
-#include "http_client_impl.h"
+#include "http_client.h"
 #include "sio_packet.h"
 #include "socket_io.h"
 #include "sio_client.h"
@@ -53,7 +53,7 @@ void SIOClientImpl::Handshake(const std::map<std::string, std::string>& user_hea
     http_request->SetValueForHttpHeaderField((*it).first, (*it).second);
   }
   
-  HttpClientImpl<>::SharedClient()->Send(std::move(http_request), [this](std::unique_ptr<HttpResponse> http_response) {
+  HttpClient<>::SharedClient()->Send(std::move(http_request), [this](std::unique_ptr<HttpResponse> http_response) {
 #ifdef SKR_LOG_SIO
     sakura::log_event("SIOClientImpl::Handshake completed");
 #endif

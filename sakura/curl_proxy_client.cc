@@ -85,7 +85,7 @@ variable's memory when passed in to it from an app like this. */
 //}
 
 ////////////////////////////////////////////////////////////////////////////////
-// HttpClientImpl, CurlRaii:
+// HttpClient, CurlRaii:
 
 //Simple wrapper of cURL using RAII
   class Curl {
@@ -281,12 +281,12 @@ variable's memory when passed in to it from an app like this. */
                 && curl.SetOptionOrDie(CURLOPT_FOLLOWLOCATION, true)
                 && curl.PerformOrDie(&response_code);
     } else {
-      //log_error("HttpClientImpl: Unsupported HTTP method");
+      //log_error("HttpClient: Unsupported HTTP method");
     }
 
     // check request has already been cancelled, if not , remove the tag from array.
     if (!RemoveRequestTag(request->tag())) {
-      log_event("HttpClientImpl: request %s has been cancelled", request->url().c_str());
+      log_event("HttpClient: request %s has been cancelled", request->url().c_str());
       return;
     }
 

@@ -21,25 +21,25 @@
 #include "sakura/http_request.h"
 #include "sakura/http_response.h"
 #include "sakura/http_proxy_client.h"
-#include "curl_proxy_client.h"
+#include "sakura/curl_proxy_client.h"
 
 NS_SKR_BEGIN
 
 template <typename ProxyClient = CurlProxyClient>
-class SKR_DLL HttpClientImpl : public ProxyClient {
+class SKR_DLL HttpClient : public ProxyClient {
 
-	static HttpClientImpl<ProxyClient>* s_shared_client_;
+	static HttpClient<ProxyClient>* s_shared_client_;
 
 public:
   
   // Creation and lifetime --------------------------------------------------------
 
-  HttpClientImpl(){};
-  virtual ~HttpClientImpl(){};
+  HttpClient(){};
+  virtual ~HttpClient(){};
 
-	static HttpClientImpl<ProxyClient>* SharedClient() {
+	static HttpClient<ProxyClient>* SharedClient() {
 		if (s_shared_client_ == nullptr) {
-			s_shared_client_ = new HttpClientImpl<ProxyClient>();
+			s_shared_client_ = new HttpClient<ProxyClient>();
 		}
 		return s_shared_client_;
 	};
@@ -66,7 +66,7 @@ public:
 	thread.detach();
 #else
 		std::function<void(std::unique_ptr<HttpRequest>, std::function<void(std::unique_ptr<HttpResponse>)>)> func =
-			std::bind(&HttpProxyClient::ProcessHttpRequest, this, std::placeholders::_1, std::placeholders::_2);
+			std::bind(&ProxyClient::ProcessHttpRequest, this, std::placeholders::_1, std::placeholders::_2);
 
 		std::string identifier_tag = request->IdentifierTag();
 		request->set_tag(identifier_tag);
@@ -84,11 +84,11 @@ public:
 		ProxyClient::request_tag_queue_.clear();
 	}
   
-  DISALLOW_COPY_AND_ASSIGN(HttpClientImpl);
+  DISALLOW_COPY_AND_ASSIGN(HttpClient);
 };
 
 	template <typename ProxyClient>
-	HttpClientImpl<ProxyClient>* HttpClientImpl<ProxyClient>::s_shared_client_ = nullptr;
+	HttpClient<ProxyClient>* HttpClient<ProxyClient>::s_shared_client_ = nullptr;
 
 NS_SKR_END
 

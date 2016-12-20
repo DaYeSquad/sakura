@@ -7,7 +7,7 @@
 
 #include <mutex>
 #include "macros.h"
-#include "http_proxy_client.h"
+#include "sakura/http_proxy_client.h"
 
 NS_SKR_BEGIN
   class SKR_DLL CurlProxyClient: public HttpProxyClient {
@@ -15,7 +15,6 @@ NS_SKR_BEGIN
   public:
     void CancelAllRequests();
 
-  protected:
     virtual void ProcessHttpRequestWin32(HttpRequest *request,
                                          std::function<void(std::unique_ptr<HttpResponse>)> callback) OVERRIDE;
 
